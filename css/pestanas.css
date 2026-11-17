@@ -1,0 +1,24 @@
+.pestanas {
+  display: flex;
+  gap: 0.35rem;
+  margin-top: 0.8rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--borde);
+  overflow-x: auto;
+}
+
+.pestanas button {
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  padding: 0.55rem 0.8rem;
+  font-weight: 600;
+  color: var(--suave);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.pestanas button.activo {
+  color: var(--verde);
+  border-bottom-color: var(--verde);
+}

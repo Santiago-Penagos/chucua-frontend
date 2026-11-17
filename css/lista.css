@@ -1,0 +1,47 @@
+.lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.lista li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  background: #f9fbfc;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+}
+
+.lista .item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.lista .item-info span {
+  color: var(--suave);
+  font-size: 0.78rem;
+}
+
+.lista .acciones-fila {
+  display: flex;
+  gap: 0.3rem;
+  align-items: flex-start;
+}
+
+.lista .vacio {
+  color: var(--suave);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 520px) {
+  .lista li {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

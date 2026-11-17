@@ -6,7 +6,7 @@ export class ErrorApi extends Error {
   }
 }
 
-export class ClienteApi {
+export class ApiService {
   constructor(baseUrl) {
     this.baseUrl = baseUrl.replace(/\/$/, '');
   }

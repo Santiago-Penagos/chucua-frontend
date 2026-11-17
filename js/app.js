@@ -1,14 +1,42 @@
 import { API_URL, CENTRO, ZOOM } from '../config.js';
-import { ClienteApi } from './api/ClienteApi.js';
+import { ApiService } from './api/ApiService.js';
 import { DOMINIOS, ORDEN } from './configDominios.js';
-import { Aplicacion } from './controlador/Aplicacion.js';
+import { ZONAS } from './datos/zonasDestacadas.js';
+import { NavegacionPortal } from './controlador/NavegacionPortal.js';
+import { GestorCrudUI } from './controlador/GestorCrudUI.js';
+import { ZonasDestacadasUI } from './vistas/ZonasDestacadasUI.js';
+import { MapaInteractivo } from './vistas/MapaInteractivo.js';
 
-const aplicacion = new Aplicacion({
-  api: new ClienteApi(API_URL),
-  dominios: DOMINIOS,
-  orden: ORDEN,
+let gestor;
+
+const mapa = new MapaInteractivo('mapa', {
   centro: CENTRO,
   zoom: ZOOM,
+  dominios: DOMINIOS,
+  alSeleccionar: (dominio) => gestor?.cambiarDominio(dominio),
 });
 
-aplicacion.iniciar();
+gestor = new GestorCrudUI({
+  api: new ApiService(API_URL),
+  dominios: DOMINIOS,
+  orden: ORDEN,
+  mapa,
+});
+
+const zonas = new ZonasDestacadasUI({
+  elemento: document.querySelector('#zonas-destacadas'),
+  zonas: ZONAS,
+  alUbicar: (zona) => {
+    document.querySelector('#sig').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    mapa.centrar(zona.coordenadas, zona.zoom);
+  },
+});
+
+const navegacion = new NavegacionPortal({
+  elemento: document.querySelector('#nav-portal'),
+  secciones: ['inicio', 'historia', 'zonas', 'sig'],
+});
+
+navegacion.iniciar();
+zonas.render();
+gestor.iniciar();

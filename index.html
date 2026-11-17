@@ -3,50 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chucua de la Vaca · Gestión geográfica</title>
+  <title>Chucua de la Vaca · Portal oficial del barrio</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/navegacion.css">
+  <link rel="stylesheet" href="css/portada.css">
+  <link rel="stylesheet" href="css/secciones.css">
+  <link rel="stylesheet" href="css/zonas.css">
+  <link rel="stylesheet" href="css/pestanas.css">
   <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/lista.css">
   <link rel="stylesheet" href="css/mapa.css">
   <link rel="stylesheet" href="css/formularios.css">
 </head>
 <body>
-  <header class="cabecera">
-    <div>
-      <h1>Chucua de la Vaca</h1>
-      <p>Sectores I, II y III · Kennedy, Bogotá</p>
-    </div>
-    <div class="controles">
-      <label for="filtro-sector">Sector</label>
-      <select id="filtro-sector">
-        <option value="">Todos</option>
-        <option value="I">Sector I</option>
-        <option value="II">Sector II</option>
-        <option value="III">Sector III</option>
-      </select>
-      <span id="estado-api" class="estado">Conectando…</span>
-    </div>
+  <a class="salto-contenido" href="#historia">Saltar al contenido</a>
+  <header class="barra">
+    <a class="marca" href="#inicio">Chucua de la Vaca</a>
+    <nav id="nav-portal" class="nav" aria-label="Secciones del portal">
+      <a href="#inicio">Inicio</a>
+      <a href="#historia">Historia</a>
+      <a href="#zonas">Zonas</a>
+      <a href="#sig">Mapa y datos</a>
+    </nav>
   </header>
 
-  <nav id="dominio-tabs" class="pestanas" aria-label="Dominios"></nav>
-
-  <main class="contenido">
-    <section class="panel-mapa" aria-label="Mapa del barrio">
-      <div id="mapa"></div>
-      <div id="leyenda" class="leyenda"></div>
+  <main>
+    <section id="inicio" class="seccion portada">
+      <p class="portada-etiqueta">Portal oficial del barrio</p>
+      <h1>Chucua de la Vaca</h1>
+      <p class="portada-texto">Sectores I, II y III · Localidad de Kennedy, Bogotá D.C.</p>
+      <p class="portada-gancho">Un barrio que creció alrededor del Humedal La Vaca, entre la memoria comunitaria y la vida de sus parques.</p>
+      <div class="portada-acciones">
+        <a class="boton primario" href="#zonas">Conocer las zonas</a><a class="boton" href="#sig">Abrir el mapa</a>
+      </div>
     </section>
-    <aside class="panel-lateral">
-      <div id="mensajes" class="mensaje" role="status" aria-live="polite" hidden></div>
-      <button id="btn-nueva" type="button" class="boton primario">Nueva entidad</button>
-      <ul id="lista-entidades" class="lista"></ul>
-      <form id="formulario" class="formulario oculto" novalidate></form>
-    </aside>
+
+    <section id="historia" class="seccion">
+      <h2>Historia e identidad</h2>
+      <div class="historia-texto">
+        <p>Chucua de la Vaca nació en los bordes del humedal que le dio el nombre. Durante décadas el sector fue ronda de agua y pastizales donde las familias fueron levantando sus casas, abriendo caminos y organizando las primeras juntas de vecinos. El humedal, antes visto como un terreno baldío, hoy se reconoce como el corazón ecológico del barrio y como el lugar que explica su identidad.</p>
+        <p>Con el tiempo la comunidad se organizó en tres sectores. El sector I conserva la memoria de los primeros asentamientos y sus casas bajas; el sector II creció junto a los equipamientos y las vías que conectan con la ciudad; y el sector III se consolidó con nuevos conjuntos y parques vecinales. Esa conformación comunitaria sostiene la vida del barrio: las faenas de limpieza de la ronda, las escuelas, las canchas y las fiestas barriales.</p>
+      </div>
+      <h3>Datos clave del territorio</h3>
+      <ul class="datos-clave">
+        <li><strong>Localidad</strong><span>Kennedy, Bogotá D.C.</span></li>
+        <li><strong>Sectores</strong><span>I, II y III</span></li>
+        <li><strong>Referente ambiental</strong><span>Humedal La Vaca</span></li>
+        <li><strong>Entorno</strong><span>Corabastos y Av. Agoberto Mejía</span></li>
+      </ul>
+    </section>
+
+    <section id="zonas" class="seccion">
+      <h2>Zonas destacadas</h2>
+      <p class="seccion-intro">Recorre los lugares que dan vida al barrio y ubícalos en el mapa con un clic.</p>
+      <div id="zonas-destacadas" class="zonas"></div>
+    </section>
+
+    <section id="sig" class="seccion sig">
+      <h2>Sistema de información geográfica</h2>
+      <p class="seccion-intro">Consulta, crea, edita y elimina la información de los cuatro dominios del barrio. Todo lo que ves aquí se guarda en la base de datos del proyecto.</p>
+      <div class="controles">
+        <label for="filtro-sector">Sector</label>
+        <select id="filtro-sector">
+          <option value="">Todos</option>
+          <option value="I">Sector I</option>
+          <option value="II">Sector II</option>
+          <option value="III">Sector III</option>
+        </select>
+        <span id="estado-api" class="estado">Conectando…</span>
+      </div>
+      <nav id="dominio-tabs" class="pestanas" aria-label="Dominios geográficos"></nav>
+      <div class="contenido">
+        <div class="panel-mapa" aria-label="Mapa del barrio">
+          <div id="mapa"></div>
+          <div id="leyenda" class="leyenda"></div>
+        </div>
+        <aside class="panel-lateral">
+          <div id="mensajes" class="mensaje" role="status" aria-live="polite" hidden></div>
+          <button id="btn-nueva" type="button" class="boton primario">Nueva entidad</button>
+          <ul id="lista-entidades" class="lista"></ul>
+          <form id="formulario" class="formulario oculto" novalidate></form>
+        </aside>
+      </div>
+    </section>
   </main>
 
   <footer class="pie">
-    <span>Datos © OpenStreetMap contributors (ODbL)</span>
-    <span>Mapa: Leaflet</span>
+    <span>Portal del barrio Chucua de la Vaca · Kennedy, Bogotá</span><span>Datos © OpenStreetMap contributors (ODbL) · Mapa: Leaflet</span>
   </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

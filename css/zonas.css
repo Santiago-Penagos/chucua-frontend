@@ -1,0 +1,53 @@
+.zonas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.zona {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-top: 4px solid var(--verde);
+  border-radius: 12px;
+}
+
+.zona h3 {
+  margin: 0;
+  color: var(--verde-oscuro);
+  font-size: 1.05rem;
+}
+
+.zona-sector {
+  margin: 0;
+  color: var(--verde);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.zona p {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.zona-detalle {
+  color: var(--suave);
+  font-size: 0.86rem;
+}
+
+.zona .boton {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+@media (max-width: 520px) {
+  .zonas {
+    grid-template-columns: 1fr;
+  }
+}

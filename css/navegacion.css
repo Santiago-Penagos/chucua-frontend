@@ -1,65 +1,84 @@
-.cabecera {
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.8rem 1.2rem;
-  background: #123b2f;
+  gap: 0.4rem 1rem;
+  min-height: var(--alto-barra);
+  padding: 0.45rem 1.2rem;
+  background: var(--verde-oscuro);
   color: #fff;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.18);
 }
 
-.cabecera h1 {
-  margin: 0;
-  font-size: 1.35rem;
+.marca {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.01em;
 }
 
-.cabecera p {
-  margin: 0.15rem 0 0;
-  font-size: 0.85rem;
-  opacity: 0.85;
-}
-
-.controles {
+.nav {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.pestanas {
-  display: flex;
-  gap: 0.35rem;
-  padding: 0.55rem 1.2rem 0;
-  background: #fff;
-  border-bottom: 1px solid var(--borde);
+  gap: 0.2rem;
   overflow-x: auto;
 }
 
-.pestanas button {
-  border: 0;
-  border-bottom: 3px solid transparent;
-  background: transparent;
-  padding: 0.55rem 0.8rem;
-  font-weight: 600;
-  color: var(--suave);
-  cursor: pointer;
+.nav a {
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+  text-decoration: none;
   white-space: nowrap;
 }
 
-.pestanas button.activo {
-  color: var(--verde);
-  border-bottom-color: var(--verde);
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.nav a[aria-current="page"] {
+  background: #fff;
+  color: var(--verde-oscuro);
+  font-weight: 600;
+}
+
+.salto-contenido {
+  position: absolute;
+  left: -999px;
+}
+
+.salto-contenido:focus {
+  left: 0.6rem;
+  top: 0.5rem;
+  z-index: 1100;
+  padding: 0.45rem 0.8rem;
+  background: #fff;
+  border-radius: 6px;
 }
 
 .pie {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0.4rem 1.2rem;
+  gap: 0.6rem 1rem;
+  padding: 1rem 1.2rem;
   font-size: 0.75rem;
   color: var(--suave);
   background: #fff;
   border-top: 1px solid var(--borde);
+}
+
+@media (max-width: 520px) {
+  .barra {
+    padding: 0.45rem 0.7rem;
+  }
+
+  .nav a {
+    font-size: 0.82rem;
+  }
 }

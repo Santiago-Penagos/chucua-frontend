@@ -2,23 +2,17 @@ import { AccionesCrud } from './AccionesCrud.js';
 import { Cargador } from './Cargador.js';
 import { Pestanas } from './Pestanas.js';
 import { FormularioEntidad } from '../vistas/FormularioEntidad.js';
-import { Mapa } from '../vistas/Mapa.js';
 import { PanelCrud } from '../vistas/PanelCrud.js';
 import { mostrarMensaje } from '../vistas/mensajes.js';
 
-export class Aplicacion {
-  constructor({ api, dominios, orden, centro, zoom }) {
+export class GestorCrudUI {
+  constructor({ api, dominios, orden, mapa }) {
     this.api = api;
     this.dominios = dominios;
     this.orden = orden;
     this.estado = { dominio: orden[0], sector: '', datos: {} };
     this.cargador = new Cargador(api, orden);
-    this.mapa = new Mapa('mapa', {
-      centro,
-      zoom,
-      dominios,
-      alSeleccionar: (dominio) => this.cambiarDominio(dominio),
-    });
+    this.mapa = mapa;
     this.formulario = new FormularioEntidad(
       document.querySelector('#formulario'),
       { alGuardar: (dominio, datos, entidad) => this.acciones.guardar(dominio, datos, entidad) }

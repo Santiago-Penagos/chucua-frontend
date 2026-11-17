@@ -1,0 +1,40 @@
+.historia-texto {
+  max-width: 74ch;
+}
+
+.datos-clave {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.7rem;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.datos-clave li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.8rem 0.9rem;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-left: 4px solid var(--verde);
+  border-radius: 10px;
+}
+
+.datos-clave strong {
+  color: var(--verde);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.datos-clave span {
+  font-weight: 600;
+}
+
+@media (max-width: 520px) {
+  .datos-clave {
+    grid-template-columns: 1fr 1fr;
+  }
+}

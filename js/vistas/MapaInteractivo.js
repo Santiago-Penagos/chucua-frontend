@@ -1,4 +1,4 @@
-export class Mapa {
+export class MapaInteractivo {
   constructor(id, { centro, zoom, dominios, alSeleccionar }) {
     this.mapa = L.map(id).setView(centro, zoom);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -8,6 +8,11 @@ export class Mapa {
     this.capas = L.layerGroup().addTo(this.mapa);
     this.alSeleccionar = alSeleccionar;
     this._leyenda(dominios);
+  }
+
+  centrar(coordenadas, zoom) {
+    this.mapa.invalidateSize();
+    this.mapa.setView(coordenadas, zoom, { animate: true });
   }
 
   _leyenda(dominios) {
