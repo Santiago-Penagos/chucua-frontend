@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chucua de la Vaca · Gestión geográfica</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/navegacion.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/mapa.css">
+  <link rel="stylesheet" href="css/formularios.css">
+</head>
+<body>
+  <header class="cabecera">
+    <div>
+      <h1>Chucua de la Vaca</h1>
+      <p>Sectores I, II y III · Kennedy, Bogotá</p>
+    </div>
+    <div class="controles">
+      <label for="filtro-sector">Sector</label>
+      <select id="filtro-sector">
+        <option value="">Todos</option>
+        <option value="I">Sector I</option>
+        <option value="II">Sector II</option>
+        <option value="III">Sector III</option>
+      </select>
+      <span id="estado-api" class="estado">Conectando…</span>
+    </div>
+  </header>
+
+  <nav id="dominio-tabs" class="pestanas" aria-label="Dominios"></nav>
+
+  <main class="contenido">
+    <section class="panel-mapa" aria-label="Mapa del barrio">
+      <div id="mapa"></div>
+      <div id="leyenda" class="leyenda"></div>
+    </section>
+    <aside class="panel-lateral">
+      <div id="mensajes" class="mensaje" role="status" aria-live="polite" hidden></div>
+      <button id="btn-nueva" type="button" class="boton primario">Nueva entidad</button>
+      <ul id="lista-entidades" class="lista"></ul>
+      <form id="formulario" class="formulario oculto" novalidate></form>
+    </aside>
+  </main>
+
+  <footer class="pie">
+    <span>Datos © OpenStreetMap contributors (ODbL)</span>
+    <span>Mapa: Leaflet</span>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
