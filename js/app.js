@@ -1,6 +1,6 @@
 import { API_URL, CENTRO, ZOOM } from '../config.js';
 import { ApiService } from './api/ApiService.js';
-import { DOMINIOS, ORDEN } from './configDominios.js';
+import { DOMINIOS, ORDEN, GRUPOS } from './configDominios.js';
 import { ZONAS } from './datos/zonasDestacadas.js';
 import { NavegacionPortal } from './controlador/NavegacionPortal.js';
 import { GestorCrudUI } from './controlador/GestorCrudUI.js';
@@ -20,6 +20,7 @@ gestor = new GestorCrudUI({
   api: new ApiService(API_URL),
   dominios: DOMINIOS,
   orden: ORDEN,
+  grupos: GRUPOS,
   mapa,
 });
 

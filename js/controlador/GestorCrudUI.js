@@ -6,7 +6,7 @@ import { PanelCrud } from '../vistas/PanelCrud.js';
 import { mostrarMensaje } from '../vistas/mensajes.js';
 
 export class GestorCrudUI {
-  constructor({ api, dominios, orden, mapa }) {
+  constructor({ api, dominios, orden, grupos, mapa }) {
     this.api = api;
     this.dominios = dominios;
     this.orden = orden;
@@ -36,6 +36,7 @@ export class GestorCrudUI {
       elemento: document.querySelector('#dominio-tabs'),
       dominios,
       orden,
+      grupos,
       alCambiar: (dominio) => this.cambiarDominio(dominio),
     });
     this.mensajes = document.querySelector('#mensajes');
@@ -57,6 +58,7 @@ export class GestorCrudUI {
     this.estado.dominio = dominio;
     this.pestanas.marcar(dominio);
     this.formulario.cerrar();
+    this.mapa.mostrar(this.estado.datos, this.dominios, dominio);
     this._renderPanel();
   }
 
@@ -70,7 +72,7 @@ export class GestorCrudUI {
     this.estadoApi.className = 'estado';
     try {
       this.estado.datos = await this.cargador.cargar(this.estado.sector);
-      this.mapa.mostrar(this.estado.datos, this.dominios);
+      this.mapa.mostrar(this.estado.datos, this.dominios, this.estado.dominio);
       this._renderPanel();
       this.estadoApi.textContent = 'API conectada';
       this.estadoApi.className = 'estado conectado';

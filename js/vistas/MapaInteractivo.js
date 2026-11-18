@@ -7,7 +7,8 @@ export class MapaInteractivo {
     }).addTo(this.mapa);
     this.capas = L.layerGroup().addTo(this.mapa);
     this.alSeleccionar = alSeleccionar;
-    this._leyenda(dominios);
+    this.leyenda = document.querySelector('#leyenda');
+    this._leyenda();
   }
 
   centrar(coordenadas, zoom) {
@@ -15,31 +16,30 @@ export class MapaInteractivo {
     this.mapa.setView(coordenadas, zoom, { animate: true });
   }
 
-  _leyenda(dominios) {
-    const contenedor = document.querySelector('#leyenda');
-    if (!contenedor) return;
-    contenedor.replaceChildren();
-    Object.entries(dominios).forEach(([clave, config]) => {
-      const item = document.createElement('span');
-      const color = document.createElement('i');
-      color.style.backgroundColor = config.color;
-      item.append(color, document.createTextNode(config.etiqueta));
-      contenedor.append(item);
-    });
+  _leyenda(config) {
+    if (!this.leyenda) return;
+    this.leyenda.replaceChildren();
+    if (!config) return;
+    const item = document.createElement('span');
+    const color = document.createElement('i');
+    color.style.backgroundColor = config.color;
+    item.append(color, document.createTextNode(config.etiqueta));
+    this.leyenda.append(item);
   }
 
-  mostrar(datos, dominios) {
+  mostrar(datos, dominios, dominioActivo) {
+    const config = dominios[dominioActivo];
+    const entidades = datos[dominioActivo] || [];
     this.capas.clearLayers();
+    this._leyenda(config);
     const dibujadas = [];
-    Object.entries(datos).forEach(([dominio, entidades]) => {
-      entidades.forEach((entidad) => {
-        const capa = this._capa(entidad, dominios[dominio].color);
-        if (!capa) return;
-        capa.bindPopup(this._popup(entidad));
-        capa.on('click', () => this.alSeleccionar?.(dominio, entidad));
-        capa.addTo(this.capas);
-        dibujadas.push(capa);
-      });
+    entidades.forEach((entidad) => {
+      const capa = this._capa(entidad, config?.color);
+      if (!capa) return;
+      capa.bindPopup(this._popup(entidad));
+      capa.on('click', () => this.alSeleccionar?.(dominioActivo, entidad));
+      capa.addTo(this.capas);
+      dibujadas.push(capa);
     });
     if (dibujadas.length) {
       this.mapa.fitBounds(L.featureGroup(dibujadas).getBounds().pad(0.15), {

@@ -1,6 +1,6 @@
 # chucua-frontend
 
-Aplicación web sin build para consultar y editar los cuatro dominios
+Aplicación web sin build para consultar y editar los catorce dominios
 geográficos del barrio Chucua de la Vaca sobre un mapa Leaflet.
 
 ## Requisitos
@@ -35,11 +35,11 @@ ejemplo `https://mi-api.onrender.com`. También puedes definir
 desde el hosting. `CENTRO` y `ZOOM` controlan la vista inicial del mapa.
 
 La configuración de dominios (colores, campos y geometría) vive en
-`js/configDominios.js`.
+`js/configDominios.js` y en los módulos de `js/config/`.
 
 ## Uso
 
-1. Elige el dominio en las pestañas superiores.
+1. Elige el dominio en el selector superior.
 2. Filtra por sector con el selector del encabezado.
 3. Pulsa **Nueva entidad** y completa nombre, sector, atributos y geometría.
    - Punto: longitud y latitud.
@@ -47,7 +47,7 @@ La configuración de dominios (colores, campos y geometría) vive en
 4. **Editar** precarga el formulario; **Eliminar** pide confirmación.
 5. Haz clic en una figura del mapa para abrir su detalle y cambiar de dominio.
 
-Tras cada operación la aplicación recarga los cuatro dominios desde la API y
+Tras cada operación la aplicación recarga los catorce dominios desde la API y
 redibuja el mapa.
 
 ## Estructura
