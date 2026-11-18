@@ -34,50 +34,66 @@
   gap: 0.35rem;
 }
 
-.leyenda i {
-  display: inline-block;
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 50%;
+.etiqueta-sector {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(18, 59, 47, 0.22);
+  border-radius: 999px;
+  color: var(--verde-oscuro);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
 }
 
-.popup-lista {
-  margin: 0.35rem 0 0;
-  padding-left: 1rem;
-  font-size: 0.8rem;
+.popup-chucua .leaflet-popup-content {
+  margin: 0.7rem 0.85rem;
 }
 
-.contenido {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 370px;
-  gap: 0.8rem;
-  align-items: start;
-  margin-top: 0.6rem;
+.popup-entidad h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+  color: var(--verde-oscuro);
 }
 
-.panel-lateral {
+.popup-meta {
   display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  max-height: min(68vh, 540px);
-  overflow: auto;
-  padding: 0.8rem;
-  background: #fff;
-  border: 1px solid var(--borde);
-  border-radius: 10px;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.6rem;
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--suave);
 }
 
-@media (max-width: 900px) {
-  .contenido {
-    grid-template-columns: 1fr;
-  }
+.popup-dominio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 600;
+  color: var(--texto);
+}
 
-  .panel-mapa {
-    height: 52vh;
-    min-height: 320px;
-  }
+.popup-atributos {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.15rem 0.65rem;
+  margin: 0.6rem 0 0.75rem;
+  font-size: 0.78rem;
+}
 
-  .panel-lateral {
-    max-height: none;
-  }
+.popup-atributos dt {
+  font-weight: 600;
+  color: var(--suave);
+}
+
+.popup-atributos dd { margin: 0; overflow-wrap: anywhere; }
+
+.popup-sin-datos {
+  margin: 0.6rem 0 0.75rem;
+  font-size: 0.78rem;
+  color: var(--suave);
+}
+
+.popup-editar {
+  width: 100%;
 }

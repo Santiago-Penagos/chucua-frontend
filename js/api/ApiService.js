@@ -41,6 +41,10 @@ export class ApiService {
     return '';
   }
 
+  sectores() {
+    return this._solicitar('/sectores/geojson');
+  }
+
   listar(dominio, sector) {
     const filtro = sector ? `?sector=${encodeURIComponent(sector)}` : '';
     return this._solicitar(`/api/v1/${dominio}${filtro}`);

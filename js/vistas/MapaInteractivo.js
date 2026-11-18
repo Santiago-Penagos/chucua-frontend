@@ -1,12 +1,19 @@
+import { CapaSectores } from './CapaSectores.js';
+import { PopupEntidad } from './PopupEntidad.js';
+import { crearIcono, crearContenidoIcono } from './iconoDominio.js';
+
+const TESELAS = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
 export class MapaInteractivo {
-  constructor(id, { centro, zoom, dominios, alSeleccionar }) {
+  constructor(id, { centro, zoom, alEditar }) {
     this.mapa = L.map(id).setView(centro, zoom);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer(TESELAS, {
       maxZoom: 19,
       attribution: '© OpenStreetMap contributors',
     }).addTo(this.mapa);
+    this.capaSectores = new CapaSectores(this.mapa);
     this.capas = L.layerGroup().addTo(this.mapa);
-    this.alSeleccionar = alSeleccionar;
+    this.popup = new PopupEntidad({ alEditar });
     this.leyenda = document.querySelector('#leyenda');
     this._leyenda();
   }
@@ -16,84 +23,69 @@ export class MapaInteractivo {
     this.mapa.setView(coordenadas, zoom, { animate: true });
   }
 
-  _leyenda(config) {
-    if (!this.leyenda) return;
-    this.leyenda.replaceChildren();
-    if (!config) return;
-    const item = document.createElement('span');
-    const color = document.createElement('i');
-    color.style.backgroundColor = config.color;
-    item.append(color, document.createTextNode(config.etiqueta));
-    this.leyenda.append(item);
+  async cargarSectores(api) {
+    try {
+      this.capaSectores.mostrar(await api.sectores());
+    } catch (error) {
+      this.capaSectores.mostrar({ features: [] });
+    }
+  }
+
+  filtrarSector(sector) {
+    if (sector) this.capaSectores.seleccionar(sector);
+    else this.capaSectores.todos();
   }
 
   mostrar(datos, dominios, dominioActivo) {
     const config = dominios[dominioActivo];
-    const entidades = datos[dominioActivo] || [];
     this.capas.clearLayers();
     this._leyenda(config);
-    const dibujadas = [];
-    entidades.forEach((entidad) => {
-      const capa = this._capa(entidad, config?.color);
+    (datos[dominioActivo] || []).forEach((entidad) => {
+      const capa = this._capa(entidad, config);
       if (!capa) return;
-      capa.bindPopup(this._popup(entidad));
-      capa.on('click', () => this.alSeleccionar?.(dominioActivo, entidad));
-      capa.addTo(this.capas);
-      dibujadas.push(capa);
-    });
-    if (dibujadas.length) {
-      this.mapa.fitBounds(L.featureGroup(dibujadas).getBounds().pad(0.15), {
-        maxZoom: 17,
+      capa.bindPopup(() => this.popup.crear(dominioActivo, config, entidad), {
+        maxWidth: 330,
+        className: 'popup-chucua',
       });
-    }
+      capa.addTo(this.capas);
+    });
   }
 
-  _capa(entidad, color) {
+  _capa(entidad, config) {
     const tipo = entidad.geometria?.type;
     const coords = entidad.coordenadas;
     if (!tipo || !coords.length) return null;
     if (tipo === 'Point') {
-      return L.circleMarker([coords[1], coords[0]], {
-        radius: 8,
-        color,
-        weight: 2,
-        fillColor: color,
-        fillOpacity: 0.85,
+      return L.marker([coords[1], coords[0]], {
+        icon: crearIcono(config, entidad.nombre),
+        title: entidad.nombre,
+        alt: entidad.nombre,
       });
     }
     if (tipo === 'LineString') {
-      return L.polyline(coords.map(([lon, lat]) => [lat, lon]), {
-        color,
-        weight: 5,
-        opacity: 0.85,
-      });
+      const puntos = coords.map(([lon, lat]) => [lat, lon]);
+      return L.polyline(puntos, { color: config.color, weight: 5, opacity: 0.85 });
     }
     if (tipo === 'Polygon') {
-      return L.polygon(coords[0].map(([lon, lat]) => [lat, lon]), {
-        color,
+      const anillo = coords[0].map(([lon, lat]) => [lat, lon]);
+      return L.polygon(anillo, {
+        color: config.color,
         weight: 2,
-        fillColor: color,
+        fillColor: config.color,
         fillOpacity: 0.25,
       });
     }
     return null;
   }
 
-  _popup(entidad) {
-    const filas = [['Sector', entidad.sector], ...Object.entries(entidad.atributos())]
-      .map(
-        ([clave, valor]) =>
-          `<li><strong>${this._escapar(clave)}:</strong> ${this._escapar(valor)}</li>`
-      )
-      .join('');
-    return `<strong>${this._escapar(entidad.nombre)}</strong><ul class="popup-lista">${filas}</ul>`;
-  }
-
-  _escapar(valor) {
-    return String(valor ?? '')
-      .replaceAll('&', '&amp;')
-      .replaceAll('<', '&lt;')
-      .replaceAll('>', '&gt;')
-      .replaceAll('"', '&quot;');
+  _leyenda(config) {
+    if (!this.leyenda) return;
+    this.leyenda.replaceChildren();
+    if (!config) return;
+    const item = document.createElement('span');
+    const texto = document.createElement('span');
+    texto.textContent = config.etiqueta;
+    item.append(crearContenidoIcono(config, { pequeno: true }), texto);
+    this.leyenda.append(item);
   }
 }

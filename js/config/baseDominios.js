@@ -3,6 +3,7 @@ export const DOMINIOS_BASE = {
     etiqueta: 'Escenarios deportivos',
     ruta: 'escenarios',
     color: '#d9480f',
+    icono: 'balon',
     geometria: 'Point',
     campos: [
       { nombre: 'tipo_escenario', etiqueta: 'Tipo de escenario', tipo: 'text', requerido: true },
@@ -12,6 +13,7 @@ export const DOMINIOS_BASE = {
     etiqueta: 'Centros educativos',
     ruta: 'educativos',
     color: '#1971c2',
+    icono: 'libro',
     geometria: 'Point',
     campos: [
       {
@@ -28,6 +30,7 @@ export const DOMINIOS_BASE = {
     etiqueta: 'Estado de las vías',
     ruta: 'vias',
     color: '#2b8a3e',
+    icono: 'via',
     geometria: 'LineString',
     campos: [
       {
@@ -44,6 +47,7 @@ export const DOMINIOS_BASE = {
     etiqueta: 'Información catastral',
     ruta: 'catastro',
     color: '#7048e8',
+    icono: 'predio',
     geometria: 'Polygon',
     campos: [
       {

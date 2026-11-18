@@ -12,8 +12,7 @@ let gestor;
 const mapa = new MapaInteractivo('mapa', {
   centro: CENTRO,
   zoom: ZOOM,
-  dominios: DOMINIOS,
-  alSeleccionar: (dominio) => gestor?.cambiarDominio(dominio),
+  alEditar: (dominio, entidad) => gestor?.editarDesdeMapa(dominio, entidad),
 });
 
 gestor = new GestorCrudUI({

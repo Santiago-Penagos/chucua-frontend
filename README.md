@@ -34,7 +34,10 @@ ejemplo `https://mi-api.onrender.com`. También puedes definir
 `window.CHUCUA_API_URL` antes de cargar `js/app.js` si prefieres inyectarla
 desde el hosting. `CENTRO` y `ZOOM` controlan la vista inicial del mapa.
 
-La configuración de dominios (colores, campos y geometría) vive en
+Los contornos de los Sectores I, II y III se consultan en `/sectores/geojson`
+y se resaltan al elegir un sector en el filtro.
+
+La configuración de dominios (colores, íconos, campos y geometría) vive en
 `js/configDominios.js` y en los módulos de `js/config/`.
 
 ## Uso
@@ -45,7 +48,8 @@ La configuración de dominios (colores, campos y geometría) vive en
    - Punto: longitud y latitud.
    - Línea o polígono: una coordenada por línea (`longitud, latitud`).
 4. **Editar** precarga el formulario; **Eliminar** pide confirmación.
-5. Haz clic en una figura del mapa para abrir su detalle y cambiar de dominio.
+5. Haz clic en un marcador, vía o predio catastral: la ficha muestra nombre,
+   dominio, sector y atributos; **Editar** abre el formulario correspondiente.
 
 Tras cada operación la aplicación recarga los catorce dominios desde la API y
 redibuja el mapa.
@@ -60,7 +64,7 @@ js/app.js                  punto de entrada
 js/api/ClienteApi.js       operaciones HTTP
 js/modelos/                entidades, subclases y geometría
 js/controlador/            aplicación, pestañas, carga y acciones CRUD
-js/vistas/                 mapa, panel, formulario y mensajes
+js/vistas/                 mapa, sectores, íconos, fichas, panel y formulario
 ```
 
 ## Notas

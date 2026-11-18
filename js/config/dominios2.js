@@ -7,6 +7,7 @@ export const DOMINIOS_AMPLIADOS_B = {
     etiqueta: 'Comercio local',
     ruta: 'comercio',
     color: '#a61e4d',
+    icono: 'tienda',
     geometria: 'Point',
     campos: [
       {
@@ -22,6 +23,7 @@ export const DOMINIOS_AMPLIADOS_B = {
     etiqueta: 'Centros culturales y culto',
     ruta: 'cultura',
     color: '#862e9c',
+    icono: 'paleta',
     geometria: 'Point',
     campos: [
       {
@@ -37,6 +39,7 @@ export const DOMINIOS_AMPLIADOS_B = {
     etiqueta: 'Servicios públicos',
     ruta: 'servicios_publicos',
     color: '#868e96',
+    icono: 'rayo',
     geometria: 'Point',
     campos: [
       {
@@ -54,6 +57,7 @@ export const DOMINIOS_AMPLIADOS_B = {
     etiqueta: 'Zonas verdes y parques',
     ruta: 'zonas_verdes',
     color: '#5c940d',
+    icono: 'arbol',
     geometria: 'Point',
     campos: [
       { nombre: 'area_aprox_m2', etiqueta: 'Área aproximada (m²)', tipo: NUMERO, requerido: true },
@@ -72,6 +76,7 @@ export const DOMINIOS_AMPLIADOS_B = {
     etiqueta: 'Población y demografía',
     ruta: 'demografia',
     color: '#d6336c',
+    icono: 'poblacion',
     geometria: 'Point',
     campos: [
       { nombre: 'poblacion_estimada', etiqueta: 'Población estimada', tipo: NUMERO, requerido: true },

@@ -47,10 +47,20 @@ export class GestorCrudUI {
     this.pestanas.render();
     document.querySelector('#filtro-sector').addEventListener('change', (evento) => {
       this.estado.sector = evento.target.value;
+      this.mapa.filtrarSector(this.estado.sector);
       this.cargar();
     });
     document.querySelector('#btn-nueva').addEventListener('click', () => this.acciones.nueva());
+    this.mapa.cargarSectores(this.api);
     this.cargar();
+  }
+
+  editarDesdeMapa(dominio, entidad) {
+    if (!this.dominios[dominio]) return;
+    this.estado.dominio = dominio;
+    this.pestanas.marcar(dominio);
+    this.formulario.abrir(dominio, this.dominios[dominio], entidad);
+    this.formulario.elemento.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   cambiarDominio(dominio) {

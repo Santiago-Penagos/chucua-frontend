@@ -1,0 +1,31 @@
+.marcador-dominio {
+  background: transparent;
+  border: 0;
+}
+
+.icono-dominio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  border: 2px solid var(--color-dominio, var(--verde));
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-dominio, var(--verde));
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.icono-dominio svg {
+  width: 64%;
+  height: 64%;
+}
+
+.icono-dominio.pequeno,
+.popup-dominio .icono-dominio,
+.leyenda .icono-dominio {
+  width: 1.05rem;
+  height: 1.05rem;
+  border-width: 1px;
+  box-shadow: none;
+}

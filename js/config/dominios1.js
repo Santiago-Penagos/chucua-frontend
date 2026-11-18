@@ -6,6 +6,7 @@ export const DOMINIOS_AMPLIADOS_A = {
     etiqueta: 'Juntas de Acción Comunal',
     ruta: 'jac',
     color: '#c92a2a',
+    icono: 'comunidad',
     geometria: 'Point',
     campos: [
       { nombre: 'presidente_contacto', etiqueta: 'Contacto del presidente', tipo: TEXTO, requerido: true },
@@ -17,6 +18,7 @@ export const DOMINIOS_AMPLIADOS_A = {
     etiqueta: 'Centros de salud',
     ruta: 'centros_salud',
     color: '#0b7285',
+    icono: 'salud',
     geometria: 'Point',
     campos: [
       {
@@ -35,6 +37,7 @@ export const DOMINIOS_AMPLIADOS_A = {
     etiqueta: 'Seguridad ciudadana',
     ruta: 'seguridad',
     color: '#364fc7',
+    icono: 'escudo',
     geometria: 'Point',
     campos: [
       {
@@ -49,6 +52,7 @@ export const DOMINIOS_AMPLIADOS_A = {
     etiqueta: 'Puntos ecológicos del humedal',
     ruta: 'humedal_puntos',
     color: '#0c8599',
+    icono: 'hoja',
     geometria: 'Point',
     campos: [
       {
@@ -66,6 +70,7 @@ export const DOMINIOS_AMPLIADOS_A = {
     etiqueta: 'Transporte y paraderos SITP',
     ruta: 'transporte',
     color: '#f08c00',
+    icono: 'bus',
     geometria: 'Point',
     campos: [
       { nombre: 'codigo_paradero', etiqueta: 'Código de paradero', tipo: TEXTO, requerido: true },
