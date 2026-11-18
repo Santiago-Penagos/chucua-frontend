@@ -1,4 +1,5 @@
 import { CapaSectores } from './CapaSectores.js';
+import { CartelSector } from './CartelSector.js';
 import { PopupEntidad } from './PopupEntidad.js';
 import { crearIcono, crearContenidoIcono } from './iconoDominio.js';
 
@@ -12,6 +13,7 @@ export class MapaInteractivo {
       attribution: '© OpenStreetMap contributors',
     }).addTo(this.mapa);
     this.capaSectores = new CapaSectores(this.mapa);
+    this.cartel = new CartelSector().addTo(this.mapa);
     this.capas = L.layerGroup().addTo(this.mapa);
     this.popup = new PopupEntidad({ alEditar });
     this.leyenda = document.querySelector('#leyenda');
@@ -32,6 +34,7 @@ export class MapaInteractivo {
   }
 
   filtrarSector(sector) {
+    this.cartel.actualizar(sector);
     if (sector) this.capaSectores.seleccionar(sector);
     else this.capaSectores.todos();
   }
