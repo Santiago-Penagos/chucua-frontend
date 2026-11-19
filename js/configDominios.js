@@ -1,21 +1,26 @@
-﻿import { escenarios } from './config/escenarios.js';
-import { educativos } from './config/educativos.js';
-import { jac } from './config/jac.js';
-import { salud } from './config/salud.js';
-import { seguridad } from './config/seguridad.js';
-import { cultura } from './config/cultura.js';
-import { servicios_publicos } from './config/servicios_publicos.js';
-import { humedal_puntos } from './config/humedal_puntos.js';
-import { zonas_verdes } from './config/zonas_verdes.js';
-import { catastro } from './config/catastro.js';
-import { demografia } from './config/demografia.js';
-import { vias } from './config/vias.js';
-import { transporte } from './config/transporte.js';
-import { comercio } from './config/comercio.js';
+﻿import { DOMINIOS_BASE } from './config/baseDominios.js';
+import { DOMINIOS_AMPLIADOS_A } from './config/dominios1.js';
+import { DOMINIOS_AMPLIADOS_B } from './config/dominios2.js';
 
 export const DOMINIOS = {
-  escenarios, educativos, jac, salud, seguridad, cultura, servicios_publicos,
-  humedal_puntos, zonas_verdes, catastro, demografia, vias, transporte, comercio,
+  ...DOMINIOS_BASE,
+  ...DOMINIOS_AMPLIADOS_A,
+  ...DOMINIOS_AMPLIADOS_B,
 };
 
-export const DOMINIOS_ORDEN = Object.keys(DOMINIOS);
+export const GRUPOS = [
+  {
+    nombre: 'Equipamientos y comunidad',
+    dominios: ['escenarios', 'educativos', 'jac', 'centros_salud', 'seguridad', 'cultura', 'servicios_publicos'],
+  },
+  {
+    nombre: 'Ambiente y territorio',
+    dominios: ['humedal_puntos', 'zonas_verdes', 'catastro', 'demografia'],
+  },
+  {
+    nombre: 'Movilidad y economía',
+    dominios: ['vias', 'transporte', 'comercio'],
+  },
+];
+
+export const ORDEN = GRUPOS.flatMap((g) => g.dominios);

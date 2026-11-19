@@ -8,7 +8,7 @@
     { nombre: 'Colegio San Pedro Claver (IED) Sede Germán Zea', coordenadas: [-74.171091, 4.631722], nota: 'Colegio público distrital colindante (CL 42 G SUR # 87 - 06 · Tel: 2992763) cruzando la Av. Carrera 86.' },
     { nombre: 'Colegio San José (IED)', coordenadas: [-74.163331, 4.62129], nota: 'Colegio público distrital colindante (CL 42 A SUR # 79 D - 37 · Tel: 4549361) cruzando la Av. Carrera 80.' },
   ],
-  salud: [
+  centros_salud: [
     { nombre: 'USS 30 Bomberos (IDECA 04140154)', coordenadas: [-74.158425, 4.622455], nota: 'Unidad de Servicios de Salud colindante (CL 40 C SUR # 79 10) cruzando la Av. Carrera 80. Cubre la atención primaria del sector ante el déficit interno.' },
     { nombre: 'USS 71 Patio Bonito (IDECA 04140213)', coordenadas: [-74.161098, 4.634478], nota: 'Unidad de Servicios de Salud colindante al norte (DG 38 SUR # 82 30 · Subred Sur Occidente).' },
     { nombre: 'USS 68 Britalia (IDECA 04140049)', coordenadas: [-74.171809, 4.622021], nota: 'Unidad de Servicios de Salud colindante al suroccidente (KR 81 C # 48 25 SUR).' },
@@ -21,3 +21,4 @@
     { nombre: 'Salón Comunal El Carmelo II Sector', coordenadas: [-74.1648, 4.6326], nota: 'Equipamiento comunal colindante al norte del Sector III.' },
   ],
 };
+
