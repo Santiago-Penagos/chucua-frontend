@@ -31,6 +31,9 @@
       'Sector catastral': '004621 · Chucua de la Vaca I (UPL 14)',
     },
   },
+  cultura: {
+    'Escultura Sueño Infantil (IDECA 05180484)': { 'Código IDECA': '05180484', 'Ubicación oficial': 'CL 44 SUR - KR 80G', 'Categoría': 'Patrimonio y arte público (IDPC)' },
+  },
   seguridad: {
     'CAI Bellavista (IDECA 06250501)': { 'Código IDECA': '06250501', 'Dirección': 'Carrera 94 con Calle 42A Sur', 'Teléfono': '4549769' },
   },
@@ -86,5 +89,6 @@
     },
   },
 };
+
 
 

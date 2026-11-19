@@ -14,6 +14,12 @@
     { nombre: 'USS 68 Britalia (IDECA 04140049)', coordenadas: [-74.171809, 4.622021], nota: 'Unidad de Servicios de Salud colindante al suroccidente (KR 81 C # 48 25 SUR).' },
     { nombre: 'Hospital Occidente de Kennedy III Nivel (IDECA 04140278)', coordenadas: [-74.148155, 4.62048], nota: 'Hospital público de alta complejidad de la localidad (Carrera 73 D No 36 - 13 SUR).' },
   ],
+  cultura: [
+    { nombre: 'Parroquia San Justino Márquez (IDECA 05150142)', coordenadas: [-74.170998, 4.622212], nota: 'Templo parroquial colindante al suroccidente (KR 81C 47A 32 SUR).' },
+    { nombre: 'Parroquia Santa Luisa de Marillac (IDECA 05150132)', coordenadas: [-74.164642, 4.6355], nota: 'Templo parroquial colindante al norte (CL 38A SUR 86F 17).' },
+    { nombre: 'Iglesia De Dios Ministerial (IDECA 05150299)', coordenadas: [-74.16502, 4.621693], nota: 'Centro de culto colindante al sur (AC 80 42C 83 SUR).' },
+    { nombre: 'Escultura Homenaje a A.J.F (IDECA 05180485)', coordenadas: [-74.168036, 4.621811], nota: 'Monumento público colindante (DG 45 SUR - KR 80G).' },
+  ],
   seguridad: [
     { nombre: 'CAI Britalia (IDECA 06250504)', coordenadas: [-74.171227, 4.624365], nota: 'CAI colindante al suroccidente (Calle 46 Sur 90 B - 00 · Tel: 2934903).' },
     { nombre: 'CAI Caldas (IDECA 06250505)', coordenadas: [-74.154017, 4.632131], nota: 'CAI colindante al nororiente (Carrera 80 2 - 00 · Tel: 2926298).' },
@@ -27,5 +33,6 @@
     { nombre: 'Salón Comunal El Carmelo II Sector', coordenadas: [-74.1648, 4.6326], nota: 'Equipamiento comunal colindante al norte del Sector III.' },
   ],
 };
+
 
 
