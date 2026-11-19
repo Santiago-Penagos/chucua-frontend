@@ -1,4 +1,5 @@
-import { CapaSectores } from './CapaSectores.js';
+﻿import { CapaSectores } from './CapaSectores.js';
+import { CapaInfluencia } from './CapaInfluencia.js';
 import { CartelSector } from './CartelSector.js';
 import { PopupEntidad } from './PopupEntidad.js';
 import { crearIcono, crearContenidoIcono } from './iconoDominio.js';
@@ -8,11 +9,9 @@ const TESELAS = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 export class MapaInteractivo {
   constructor(id, { centro, zoom, alEditar }) {
     this.mapa = L.map(id).setView(centro, zoom);
-    L.tileLayer(TESELAS, {
-      maxZoom: 19,
-      attribution: '© OpenStreetMap contributors',
-    }).addTo(this.mapa);
+    L.tileLayer(TESELAS, { maxZoom: 19, attribution: '© OpenStreetMap contributors' }).addTo(this.mapa);
     this.capaSectores = new CapaSectores(this.mapa);
+    this.capaInfluencia = new CapaInfluencia(this.mapa);
     this.cartel = new CartelSector().addTo(this.mapa);
     this.capas = L.layerGroup().addTo(this.mapa);
     this.popup = new PopupEntidad({ alEditar });
@@ -42,14 +41,12 @@ export class MapaInteractivo {
   mostrar(datos, dominios, dominioActivo) {
     const config = dominios[dominioActivo];
     this.capas.clearLayers();
-    this._leyenda(config);
+    this._leyenda(config, dominioActivo);
+    this.capaInfluencia.mostrar(dominioActivo);
     (datos[dominioActivo] || []).forEach((entidad) => {
       const capa = this._capa(entidad, config);
       if (!capa) return;
-      capa.bindPopup(() => this.popup.crear(dominioActivo, config, entidad), {
-        maxWidth: 330,
-        className: 'popup-chucua',
-      });
+      capa.bindPopup(() => this.popup.crear(dominioActivo, config, entidad), { maxWidth: 330, className: 'popup-chucua' });
       capa.addTo(this.capas);
     });
   }
@@ -59,29 +56,18 @@ export class MapaInteractivo {
     const coords = entidad.coordenadas;
     if (!tipo || !coords.length) return null;
     if (tipo === 'Point') {
-      return L.marker([coords[1], coords[0]], {
-        icon: crearIcono(config, entidad.nombre),
-        title: entidad.nombre,
-        alt: entidad.nombre,
-      });
+      return L.marker([coords.at(1), coords.at(0)], { icon: crearIcono(config, entidad.nombre), title: entidad.nombre, alt: entidad.nombre });
     }
     if (tipo === 'LineString') {
-      const puntos = coords.map(([lon, lat]) => [lat, lon]);
-      return L.polyline(puntos, { color: config.color, weight: 5, opacity: 0.85 });
+      return L.polyline(coords.map(([lon, lat]) => [lat, lon]), { color: config.color, weight: 5, opacity: 0.85 });
     }
     if (tipo === 'Polygon') {
-      const anillo = coords[0].map(([lon, lat]) => [lat, lon]);
-      return L.polygon(anillo, {
-        color: config.color,
-        weight: 2,
-        fillColor: config.color,
-        fillOpacity: 0.25,
-      });
+      return L.polygon(coords.at(0).map(([lon, lat]) => [lat, lon]), { color: config.color, weight: 2, fillColor: config.color, fillOpacity: 0.25 });
     }
     return null;
   }
 
-  _leyenda(config) {
+  _leyenda(config, dominioActivo) {
     if (!this.leyenda) return;
     this.leyenda.replaceChildren();
     if (!config) return;
@@ -90,5 +76,6 @@ export class MapaInteractivo {
     texto.textContent = config.etiqueta;
     item.append(crearContenidoIcono(config, { pequeno: true }), texto);
     this.leyenda.append(item);
+    this.capaInfluencia.agregarLeyenda(this.leyenda, dominioActivo);
   }
 }
