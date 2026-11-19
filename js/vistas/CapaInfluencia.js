@@ -37,6 +37,12 @@ export const EQUIPAMIENTOS_EXTERNOS = {
       nota: 'Colegio oficial distrital colindante al sur del Sector II. Es la sede principal de la educación pública que abastece al barrio.',
     },
   ],
+  salud: [
+    { nombre: 'USS 30 Bomberos (IDECA 04140154)', coordenadas: [-74.158425, 4.622455], nota: 'Unidad de Servicios de Salud colindante (CL 40 C SUR # 79 10) cruzando la Av. Carrera 80. Cubre la atención primaria del sector ante el déficit interno.' },
+    { nombre: 'USS 71 Patio Bonito (IDECA 04140213)', coordenadas: [-74.161098, 4.634478], nota: 'Unidad de Servicios de Salud colindante al norte (DG 38 SUR # 82 30 · Subred Sur Occidente).' },
+    { nombre: 'USS 68 Britalia (IDECA 04140049)', coordenadas: [-74.171809, 4.622021], nota: 'Unidad de Servicios de Salud colindante al suroccidente (KR 81 C # 48 25 SUR).' },
+    { nombre: 'Hospital Occidente de Kennedy III Nivel (IDECA 04140278)', coordenadas: [-74.148155, 4.62048], nota: 'Hospital público de alta complejidad de la localidad (Carrera 73 D No 36 - 13 SUR).' },
+  ],
   jac: [
     { nombre: 'Junta de Acción Comunal Villa Nelly III Sector Los Alisos (IDPAC 8187)', coordenadas: [-74.168709, 4.633089], entidad: 'IDPAC', nota: 'Salón comunal colindante al norte del Sector III, sobre el borde de Villa Nelly III Sector Los Alisos; atiende población de la ronda norte de Chucua de la Vaca.' },
     { nombre: 'Junta de Acción Comunal Villa Hermosa (IDPAC 8079)', coordenadas: [-74.167207, 4.632267], entidad: 'IDPAC', nota: 'Salón comunal colindante al nororiente del Sector III. Aunque su sector catastral es Provivienda Occidental, su sede queda frente al límite de Chucua de la Vaca.' },
@@ -48,6 +54,12 @@ export const EQUIPAMIENTOS_EXTERNOS = {
 const CONFIGS = {
   escenarios: { etiqueta: 'Influencia externa (fuera del límite catastral)', color: AMBAR, icono: 'balon' },
   educativos: { etiqueta: 'Colegios públicos distritales (IED) colindantes', color: AMBAR, icono: 'libro' },
+  salud: [
+    { nombre: 'USS 30 Bomberos (IDECA 04140154)', coordenadas: [-74.158425, 4.622455], nota: 'Unidad de Servicios de Salud colindante (CL 40 C SUR # 79 10) cruzando la Av. Carrera 80. Cubre la atención primaria del sector ante el déficit interno.' },
+    { nombre: 'USS 71 Patio Bonito (IDECA 04140213)', coordenadas: [-74.161098, 4.634478], nota: 'Unidad de Servicios de Salud colindante al norte (DG 38 SUR # 82 30 · Subred Sur Occidente).' },
+    { nombre: 'USS 68 Britalia (IDECA 04140049)', coordenadas: [-74.171809, 4.622021], nota: 'Unidad de Servicios de Salud colindante al suroccidente (KR 81 C # 48 25 SUR).' },
+    { nombre: 'Hospital Occidente de Kennedy III Nivel (IDECA 04140278)', coordenadas: [-74.148155, 4.62048], nota: 'Hospital público de alta complejidad de la localidad (Carrera 73 D No 36 - 13 SUR).' },
+  ],
   jac: { etiqueta: 'Salones comunales colindantes (IDPAC)', color: AMBAR, icono: 'comunidad' },
 };
 
@@ -89,3 +101,4 @@ export class CapaInfluencia {
     return caja;
   }
 }
+
