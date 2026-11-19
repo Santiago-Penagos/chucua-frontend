@@ -3,13 +3,11 @@
   II: '#1c7ed6',
   III: '#e8590c',
 };
-
 const ESTILOS = {
   base: { weight: 2, opacity: 0.9, fillOpacity: 0.08 },
   activo: { weight: 4, opacity: 1, color: '#111827', fillOpacity: 0.22 },
   atenuado: { weight: 1, opacity: 0.35, color: '#adb5bd', fillColor: '#adb5bd', fillOpacity: 0.03 },
 };
-
 export class CapaSectores {
   constructor(mapa) {
     this.mapa = mapa;
@@ -18,7 +16,6 @@ export class CapaSectores {
     this.etiquetas = new Map();
     this.seleccion = '';
   }
-
   mostrar(coleccion) {
     this.grupo.clearLayers();
     this.capas.clear();
@@ -27,7 +24,6 @@ export class CapaSectores {
     if (this.seleccion) this.seleccionar(this.seleccion);
     else this.todos();
   }
-
   todos() {
     this.seleccion = '';
     this.capas.forEach((capa, sector) => {
@@ -37,7 +33,6 @@ export class CapaSectores {
     });
     this._encuadrar([...this.capas.values()]);
   }
-
   seleccionar(sector) {
     this.seleccion = sector;
     if (!this.capas.has(sector)) return;
@@ -50,7 +45,6 @@ export class CapaSectores {
     });
     this._encuadrar([this.capas.get(sector)]);
   }
-
   _agregar(feature) {
     const sector = feature.properties?.sector;
     const coords = feature.geometry?.coordinates || [];
@@ -70,7 +64,6 @@ export class CapaSectores {
     this.capas.set(sector, capa);
     this.etiquetas.set(sector, this._etiqueta(capa, sector));
   }
-
   _alternar(sector) {
     const filtro = document.querySelector('#filtro-sector');
     const nuevo = this.seleccion === sector ? '' : sector;
@@ -80,7 +73,6 @@ export class CapaSectores {
     } else if (nuevo) this.seleccionar(nuevo);
     else this.todos();
   }
-
   _etiqueta(capa, sector) {
     const marcador = L.marker(capa.getBounds().getCenter(), {
       icon: L.divIcon({
@@ -94,7 +86,6 @@ export class CapaSectores {
     });
     return marcador.addTo(this.grupo);
   }
-
   _encuadrar(capas) {
     if (!capas.length) return;
     this.mapa.invalidateSize();
@@ -102,3 +93,4 @@ export class CapaSectores {
     if (limites.isValid()) this.mapa.fitBounds(limites.pad(0.06), { maxZoom: 17 });
   }
 }
+

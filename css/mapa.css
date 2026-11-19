@@ -7,12 +7,10 @@
   border: 1px solid var(--borde);
   border-radius: 12px;
 }
-
 #mapa {
   width: 100%;
   height: 100%;
 }
-
 .leyenda {
   position: absolute;
   left: 0.6rem;
@@ -27,13 +25,11 @@
   border: 1px solid var(--borde);
   border-radius: 8px;
 }
-
 .leyenda span {
   display: flex;
   align-items: center;
   gap: 0.35rem;
 }
-
 .etiqueta-sector {
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(18, 59, 47, 0.22);
@@ -45,17 +41,14 @@
   text-align: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
 }
-
 .popup-chucua .leaflet-popup-content {
   margin: 0.7rem 0.85rem;
 }
-
 .popup-entidad h3 {
   margin: 0 0 0.3rem;
   font-size: 1rem;
   color: var(--verde-oscuro);
 }
-
 .popup-meta {
   display: flex;
   flex-wrap: wrap;
@@ -64,7 +57,6 @@
   font-size: 0.78rem;
   color: var(--suave);
 }
-
 .popup-dominio {
   display: inline-flex;
   align-items: center;
@@ -72,7 +64,6 @@
   font-weight: 600;
   color: var(--texto);
 }
-
 .popup-atributos {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -80,24 +71,19 @@
   margin: 0.6rem 0 0.75rem;
   font-size: 0.78rem;
 }
-
 .popup-atributos dt {
   font-weight: 600;
   color: var(--suave);
 }
-
 .popup-atributos dd { margin: 0; overflow-wrap: anywhere; }
-
 .popup-sin-datos {
   margin: 0.6rem 0 0.75rem;
   font-size: 0.78rem;
   color: var(--suave);
 }
-
 .popup-editar {
   width: 100%;
 }
-
 .leaflet-interactive:focus {
   outline: none;
 }
