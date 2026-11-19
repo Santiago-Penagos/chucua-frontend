@@ -12,12 +12,35 @@ export class PopupEntidad {
   crear(dominio, config, entidad) {
     const articulo = document.createElement('article');
     articulo.className = 'popup-entidad';
+    const extra = FICHAS_OFICIALES[dominio]?.[entidad.nombre] || {};
     articulo.append(
       this._encabezado(entidad, config),
-      this._atributos(dominio, entidad),
+      this._visual(extra.Imagen, entidad.nombre),
+      this._atributos(entidad, extra),
       this._boton(dominio, entidad)
     );
     return articulo;
+  }
+
+  _visual(src, alt) {
+    if (!src) {
+      const aviso = document.createElement('p');
+      aviso.className = 'popup-sin-imagen';
+      aviso.textContent = 'Sin imagen verídica';
+      return aviso;
+    }
+    const img = document.createElement('img');
+    img.className = 'popup-foto';
+    img.src = src;
+    img.alt = alt || 'Fotografía del lugar';
+    img.loading = 'lazy';
+    img.onerror = () => {
+      const aviso = document.createElement('p');
+      aviso.className = 'popup-sin-imagen';
+      aviso.textContent = 'Sin imagen verídica';
+      img.replaceWith(aviso);
+    };
+    return img;
   }
 
   _encabezado(entidad, config) {
@@ -26,20 +49,19 @@ export class PopupEntidad {
     titulo.textContent = entidad.nombre || 'Sin nombre';
     const meta = document.createElement('p');
     meta.className = 'popup-meta';
-    const dominio = document.createElement('span');
-    dominio.className = 'popup-dominio';
-    dominio.append(crearContenidoIcono(config), document.createTextNode(config.etiqueta));
+    const dom = document.createElement('span');
+    dom.className = 'popup-dominio';
+    dom.append(crearContenidoIcono(config), document.createTextNode(config.etiqueta));
     const sector = document.createElement('span');
     sector.textContent = `Sector ${entidad.sector || 'sin asignar'}`;
-    meta.append(dominio, sector);
+    meta.append(dom, sector);
     cabecera.append(titulo, meta);
     return cabecera;
   }
 
-  _atributos(dominio, entidad) {
-    const base = Object.entries(entidad.atributos?.() || {});
-    const extra = Object.entries(FICHAS_OFICIALES[dominio]?.[entidad.nombre] || {});
-    const atributos = [...base, ...extra];
+  _atributos(entidad, extra) {
+    const filtrados = Object.entries(extra).filter(([k]) => k !== 'Imagen');
+    const atributos = [...Object.entries(entidad.atributos?.() || {}), ...filtrados];
     if (!atributos.length) {
       const aviso = document.createElement('p');
       aviso.className = 'popup-sin-datos';
@@ -68,7 +90,6 @@ export class PopupEntidad {
   }
 
   _valor(valor) {
-    const texto = String(valor ?? '').trim();
-    return texto || SIN_VALOR;
+    return String(valor ?? '').trim() || SIN_VALOR;
   }
 }

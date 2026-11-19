@@ -87,4 +87,6 @@
 .leaflet-interactive:focus {
   outline: none;
 }
+.popup-foto { width: 100%; height: 125px; object-fit: cover; border-radius: 8px; margin-top: 0.55rem; display: block; }
+.popup-sin-imagen { margin: 0.55rem 0 0; padding: 0.45rem 0.6rem; font-size: 0.75rem; color: var(--suave); background: #f8fafc; border: 1px dashed var(--borde); border-radius: 8px; text-align: center; }
 
