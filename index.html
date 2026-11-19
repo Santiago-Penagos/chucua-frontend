@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chucua de la Vaca · Portal oficial del barrio</title>
-  <link rel="stylesheet" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/navegacion.css">
   <link rel="stylesheet" href="css/portada.css">
@@ -23,12 +23,7 @@
   <a class="salto-contenido" href="#historia">Saltar al contenido</a>
   <header class="barra">
     <a class="marca" href="#inicio">Chucua de la Vaca</a>
-    <nav id="nav-portal" class="nav" aria-label="Secciones del portal">
-      <a href="#inicio">Inicio</a>
-      <a href="#historia">Historia</a>
-      <a href="#zonas">Zonas</a>
-      <a href="#sig">Mapa y datos</a>
-      <a href="#consideraciones">Detalles a considerar</a>
+    <nav id="nav-portal" class="nav" aria-label="Secciones del portal"> <a href="#inicio">Inicio</a> <a href="#historia">Historia</a> <a href="#zonas">Zonas</a> <a href="#sig">Mapa y datos</a> <a href="#consideraciones">Detalles a considerar</a>
     </nav>
   </header>
   <main>
@@ -48,11 +43,7 @@
         <p>Con el tiempo la comunidad se organizó en tres sectores catastrales oficiales (UAECD / IDECA): Chucua de la Vaca I (004621), II (004620) y III (004619), donde conviven desarrollos comunitarios, zonas de conservación ambiental y equipamientos urbanos.</p>
       </div>
       <h3>Datos clave del territorio</h3>
-      <ul class="datos-clave">
-        <li><strong>Localidad</strong><span>Kennedy, Bogotá D.C.</span></li>
-        <li><strong>Sectores IDECA</strong><span>004621 (I), 004620 (II), 004619 (III)</span></li>
-        <li><strong>Referente ambiental</strong><span>Humedal La Vaca</span></li>
-        <li><strong>Entorno</strong><span>Corabastos y Av. Agoberto Mejía</span></li>
+      <ul class="datos-clave"> <li><strong>Localidad</strong><span>Kennedy, Bogotá D.C.</span></li> <li><strong>Sectores IDECA</strong><span>004621 (I), 004620 (II), 004619 (III)</span></li> <li><strong>Referente ambiental</strong><span>Humedal La Vaca</span></li> <li><strong>Entorno</strong><span>Corabastos y Av. Agoberto Mejía</span></li>
       </ul>
     </section>
     <section id="zonas" class="seccion">
@@ -65,11 +56,7 @@
       <p class="seccion-intro">Consulta, crea, edita y elimina la información de los catorce dominios del barrio sobre la cartografía oficial de Bogotá.</p>
       <div class="controles">
         <label for="filtro-sector">Sector</label>
-        <select id="filtro-sector">
-          <option value="">Todos</option>
-          <option value="I">Sector I</option>
-          <option value="II">Sector II</option>
-          <option value="III">Sector III</option>
+        <select id="filtro-sector"> <option value="">Todos</option> <option value="I">Sector I</option> <option value="II">Sector II</option> <option value="III">Sector III</option>
         </select>
         <span id="estado-api" class="estado">Conectando…</span>
       </div>
@@ -90,18 +77,15 @@
     <section id="consideraciones" class="seccion">
       <h2>Detalles a considerar</h2>
       <p class="seccion-intro">Notas técnicas y territoriales sobre la cartografía catastral (UAECD / IDECA) y los equipamientos de influencia directa del barrio.</p>
-      <ul class="lista-consideraciones">
-        <li><strong>Escenarios deportivos y Parque Metropolitano Cayetano Cañizares (IDRD 08-241):</strong> Dentro de los polígonos catastrales oficiales existen 5 parques y escenarios certificados por el IDRD, todos en el Sector I (004621), ya que el Sector II alberga el Humedal La Vaca y el Sector III corresponde a Corabastos. Se incluye en ámbar el Parque Metropolitano Cayetano Cañizares (cruzando la Av. Carrera 80) como influencia externa directa.</li>
-        <li><strong>Centros educativos y cobertura IED:</strong> Adentro funcionan 3 colegios privados registrados en IDECA (2 en Sector I y 1 en Sector II). Como al interior no existen colegios públicos distritales, se incluyen en ámbar los 4 planteles IED colindantes: Colegio La Amistad (Sedes Pinar del Río y Llano Grande sobre la Cra. 83), San Pedro Claver (Sede Germán Zea) y San José.</li>
-        <li><strong>Juntas de Acción Comunal (IDPAC):</strong> Se identificaron 8 JAC oficiales dentro del barrio (4 en Sector I, 2 en Sector II y 2 en Sector III) y 4 salones comunales colindantes en ámbar.</li>
-        <li><strong>Centros de salud y déficit local:</strong> La auditoría oficial sobre IDECA confirma 0 centros de salud u hospitales dentro de Chucua de la Vaca I, II y III (evidenciando déficit de equipamiento médico interno); se incluyen en ámbar las unidades colindantes más cercanas de la Subred Sur Occidente (USS 30 Bomberos, USS 71 Patio Bonito, USS 68 Britalia y Hospital Occidente de Kennedy).</li>
+      <ul class="lista-consideraciones"> <li><strong>Escenarios deportivos y Parque Metropolitano Cayetano Cañizares (IDRD 08-241):</strong> Dentro de los polígonos catastrales oficiales existen 5 parques y escenarios certificados por el IDRD, todos en el Sector I (004621), ya que el Sector II alberga el Humedal La Vaca y el Sector III corresponde a Corabastos. Se incluye en ámbar el Parque Metropolitano Cayetano Cañizares (cruzando la Av. Carrera 80) como influencia externa directa.</li> <li><strong>Centros educativos y cobertura IED:</strong> Adentro funcionan 3 colegios privados registrados en IDECA (2 en Sector I y 1 en Sector II). Como al interior no existen colegios públicos distritales, se incluyen en ámbar los 4 planteles IED colindantes: Colegio La Amistad (Sedes Pinar del Río y Llano Grande sobre la Cra. 83), San Pedro Claver (Sede Germán Zea) y San José.</li> <li><strong>Juntas de Acción Comunal (IDPAC):</strong> Se identificaron 8 JAC oficiales dentro del barrio (4 en Sector I, 2 en Sector II y 2 en Sector III) y 4 salones comunales colindantes en ámbar.</li> <li><strong>Centros de salud y déficit local:</strong> La auditoría oficial sobre IDECA confirma 0 centros de salud u hospitales dentro de Chucua de la Vaca I, II y III (evidenciando déficit de equipamiento médico interno); se incluyen en ámbar las unidades colindantes más cercanas de la Subred Sur Occidente (USS 30 Bomberos, USS 71 Patio Bonito, USS 68 Britalia y Hospital Occidente de Kennedy).</li>
       </ul>
     </section>
   </main>
   <footer class="pie">
     <span>Portal del barrio Chucua de la Vaca · Kennedy, Bogotá</span><span>Cartografía: IDECA / UAECD · Mapa base: © OpenStreetMap contributors (ODbL)</span>
   </footer>
-  <script src="https://unpkg.com"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
+
