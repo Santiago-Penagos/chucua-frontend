@@ -31,14 +31,15 @@
   gap: 0.35rem;
 }
 .etiqueta-sector {
-  background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(18, 59, 47, 0.22);
   border-radius: 999px;
   color: var(--verde-oscuro);
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  line-height: 22px;
+  line-height: 18px;
   text-align: center;
+  background: rgba(255, 255, 255, 0.82);
+  pointer-events: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
 }
 .popup-chucua .leaflet-popup-content {

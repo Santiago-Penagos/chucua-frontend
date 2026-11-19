@@ -37,11 +37,18 @@ export const EQUIPAMIENTOS_EXTERNOS = {
       nota: 'Colegio oficial distrital colindante al sur del Sector II. Es la sede principal de la educación pública que abastece al barrio.',
     },
   ],
+  jac: [
+    { nombre: 'Junta de Acción Comunal Villa Nelly III Sector Los Alisos (IDPAC 8187)', coordenadas: [-74.168709, 4.633089], entidad: 'IDPAC', nota: 'Salón comunal colindante al norte del Sector III, sobre el borde de Villa Nelly III Sector Los Alisos; atiende población de la ronda norte de Chucua de la Vaca.' },
+    { nombre: 'Junta de Acción Comunal Villa Hermosa (IDPAC 8079)', coordenadas: [-74.167207, 4.632267], entidad: 'IDPAC', nota: 'Salón comunal colindante al nororiente del Sector III. Aunque su sector catastral es Provivienda Occidental, su sede queda frente al límite de Chucua de la Vaca.' },
+    { nombre: 'Junta de Acción Comunal Calarcá Sur (IDPAC 8022)', coordenadas: [-74.168193, 4.620040], entidad: 'IDPAC', nota: 'Salón comunal colindante al sur del Sector I, en el borde de Casa Blanca Sur; presta servicios a hogares de la ronda sur del barrio.' },
+    { nombre: 'Junta de Acción Comunal El Carmelo II Sector (IDPAC 8229)', coordenadas: [-74.174353, 4.620999], entidad: 'IDPAC', nota: 'Salón comunal colindante al occidente del Sector I, en el borde de El Carmelo; se incluye por su influencia sobre la ronda occidental de Chucua de la Vaca.' },
+  ],
 };
 
 const CONFIGS = {
   escenarios: { etiqueta: 'Influencia externa (fuera del límite catastral)', color: AMBAR, icono: 'balon' },
   educativos: { etiqueta: 'Colegios públicos distritales (IED) colindantes', color: AMBAR, icono: 'libro' },
+  jac: { etiqueta: 'Salones comunales colindantes (IDPAC)', color: AMBAR, icono: 'comunidad' },
 };
 
 export class CapaInfluencia {

@@ -8,6 +8,7 @@ const ESTILOS = {
   activo: { weight: 4, opacity: 1, color: '#111827', fillOpacity: 0.22 },
   atenuado: { weight: 1, opacity: 0.35, color: '#adb5bd', fillColor: '#adb5bd', fillOpacity: 0.03 },
 };
+const UBICACIONES = { I: [4.6242, -74.1682], II: [4.6278, -74.1656], III: [4.6296, -74.1636] };
 export class CapaSectores {
   constructor(mapa) {
     this.mapa = mapa;
@@ -74,7 +75,8 @@ export class CapaSectores {
     else this.todos();
   }
   _etiqueta(capa, sector) {
-    const marcador = L.marker(capa.getBounds().getCenter(), {
+    const marcador = L.marker(UBICACIONES[sector] || capa.getBounds().getCenter(), {
+      zIndexOffset: 1000,
       icon: L.divIcon({
         className: 'etiqueta-sector',
         html: `Sector ${sector}`,
