@@ -1,4 +1,4 @@
-const COLORES = {
+﻿const COLORES = {
   I: '#0b6b4f',
   II: '#1c7ed6',
   III: '#e8590c',
@@ -6,7 +6,7 @@ const COLORES = {
 
 const ESTILOS = {
   base: { weight: 2, opacity: 0.9, fillOpacity: 0.08 },
-  activo: { weight: 3, opacity: 1, fillOpacity: 0.24 },
+  activo: { weight: 4, opacity: 1, color: '#111827', fillOpacity: 0.22 },
   atenuado: { weight: 1, opacity: 0.35, color: '#adb5bd', fillColor: '#adb5bd', fillOpacity: 0.03 },
 };
 
@@ -43,8 +43,9 @@ export class CapaSectores {
     if (!this.capas.has(sector)) return;
     this.capas.forEach((capa, clave) => {
       const activo = clave === sector;
-      const color = COLORES[clave];
-      capa.setStyle(activo ? { ...ESTILOS.activo, color, fillColor: color } : ESTILOS.atenuado);
+      const fillColor = COLORES[clave];
+      capa.setStyle(activo ? { ...ESTILOS.activo, fillColor } : ESTILOS.atenuado);
+      if (activo) capa.bringToFront();
       this.etiquetas.get(clave)?.setOpacity(activo ? 1 : 0.35);
     });
     this._encuadrar([this.capas.get(sector)]);
@@ -62,9 +63,20 @@ export class CapaSectores {
       sticky: true,
       direction: 'top',
     });
+    capa.on('click', () => this._alternar(sector));
     capa.addTo(this.grupo);
     this.capas.set(sector, capa);
     this.etiquetas.set(sector, this._etiqueta(capa, sector));
+  }
+
+  _alternar(sector) {
+    const filtro = document.querySelector('#filtro-sector');
+    const nuevo = this.seleccion === sector ? '' : sector;
+    if (filtro) {
+      filtro.value = nuevo;
+      filtro.dispatchEvent(new Event('change'));
+    } else if (nuevo) this.seleccionar(nuevo);
+    else this.todos();
   }
 
   _etiqueta(capa, sector) {
@@ -72,8 +84,8 @@ export class CapaSectores {
       icon: L.divIcon({
         className: 'etiqueta-sector',
         html: `Sector ${sector}`,
-        iconSize: [74, 24],
-        iconAnchor: [37, 12],
+        iconSize:,
+        iconAnchor:,
       }),
       interactive: false,
       keyboard: false,

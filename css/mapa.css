@@ -1,4 +1,4 @@
-.panel-mapa {
+﻿.panel-mapa {
   position: relative;
   height: min(68vh, 540px);
   min-height: 380px;
@@ -97,3 +97,8 @@
 .popup-editar {
   width: 100%;
 }
+
+.leaflet-interactive:focus {
+  outline: none;
+}
+
