@@ -14,6 +14,11 @@
     { nombre: 'USS 68 Britalia (IDECA 04140049)', coordenadas: [-74.171809, 4.622021], nota: 'Unidad de Servicios de Salud colindante al suroccidente (KR 81 C # 48 25 SUR).' },
     { nombre: 'Hospital Occidente de Kennedy III Nivel (IDECA 04140278)', coordenadas: [-74.148155, 4.62048], nota: 'Hospital público de alta complejidad de la localidad (Carrera 73 D No 36 - 13 SUR).' },
   ],
+  servicios_publicos: [
+    { nombre: 'SuperCADE Américas (IDECA 06210103)', coordenadas: [-74.1733, 4.628271], nota: 'Punto integral de atención de servicios públicos y trámites distritales colindante (AK 86 43 55 SUR).' },
+    { nombre: 'CADE Kennedy (IDECA 06210100)', coordenadas: [-74.153349, 4.624622], nota: 'Centro de Atención Distrital Especializado colindante (KR 78G 38C 11 SUR).' },
+    { nombre: 'Alcaldía Local de Kennedy (IDECA 06210116)', coordenadas: [-74.15748, 4.619051], nota: 'Sede administrativa local colindante (TV 78K 41A 04 SUR).' },
+  ],
   cultura: [
     { nombre: 'Parroquia San Justino Márquez (IDECA 05150142)', coordenadas: [-74.170998, 4.622212], nota: 'Templo parroquial colindante al suroccidente (KR 81C 47A 32 SUR).' },
     { nombre: 'Parroquia Santa Luisa de Marillac (IDECA 05150132)', coordenadas: [-74.164642, 4.6355], nota: 'Templo parroquial colindante al norte (CL 38A SUR 86F 17).' },
@@ -33,6 +38,7 @@
     { nombre: 'Salón Comunal El Carmelo II Sector', coordenadas: [-74.1648, 4.6326], nota: 'Equipamiento comunal colindante al norte del Sector III.' },
   ],
 };
+
 
 
 
