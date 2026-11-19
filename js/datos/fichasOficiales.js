@@ -31,6 +31,9 @@
       'Sector catastral': '004621 · Chucua de la Vaca I (UPL 14)',
     },
   },
+  seguridad: {
+    'CAI Bellavista (IDECA 06250501)': { 'Código IDECA': '06250501', 'Dirección': 'Carrera 94 con Calle 42A Sur', 'Teléfono': '4549769' },
+  },
   educativos: {
     'Liceo Santa Catalina de Siena (IDECA 07261316)': {
       'Código IDECA': '07261316',
@@ -83,4 +86,5 @@
     },
   },
 };
+
 
