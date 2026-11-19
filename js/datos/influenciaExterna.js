@@ -14,6 +14,9 @@
     { nombre: 'USS 68 Britalia (IDECA 04140049)', coordenadas: [-74.171809, 4.622021], nota: 'Unidad de Servicios de Salud colindante al suroccidente (KR 81 C # 48 25 SUR).' },
     { nombre: 'Hospital Occidente de Kennedy III Nivel (IDECA 04140278)', coordenadas: [-74.148155, 4.62048], nota: 'Hospital público de alta complejidad de la localidad (Carrera 73 D No 36 - 13 SUR).' },
   ],
+  humedal_puntos: [
+    { nombre: 'PEDH Humedal La Vaca — Sector Sur (Ronda Villa Nelly)', coordenadas: [-74.16565, 4.62235], nota: 'Segundo cuerpo del complejo ecológico del Humedal La Vaca (Sector Sur), conectado hidrológicamente con el Sector Norte.' },
+  ],
   servicios_publicos: [
     { nombre: 'SuperCADE Américas (IDECA 06210103)', coordenadas: [-74.1733, 4.628271], nota: 'Punto integral de atención de servicios públicos y trámites distritales colindante (AK 86 43 55 SUR).' },
     { nombre: 'CADE Kennedy (IDECA 06210100)', coordenadas: [-74.153349, 4.624622], nota: 'Centro de Atención Distrital Especializado colindante (KR 78G 38C 11 SUR).' },
@@ -38,6 +41,7 @@
     { nombre: 'Salón Comunal El Carmelo II Sector', coordenadas: [-74.1648, 4.6326], nota: 'Equipamiento comunal colindante al norte del Sector III.' },
   ],
 };
+
 
 
 

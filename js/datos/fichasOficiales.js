@@ -31,6 +31,11 @@
       'Sector catastral': '004621 · Chucua de la Vaca I (UPL 14)',
     },
   },
+  humedal_puntos: {
+    'Espejo de Agua Principal — PEDH La Vaca Norte (IDECA Capa 12)': { 'Polígono oficial IDECA': 'Capa 12 Cuerpo de Agua (231 vértices)', 'Área espejo': '46.600 m² aprox. (Sector Norte)', 'Administración': 'Secretaría Distrital de Ambiente / EAAB' },
+    'Ronda Hidráulica y Franja de Amortiguación — La Vaca (SDA)': { 'Normativa': 'Reserva Distrital de Humedal (POT Bogotá)', 'Ubicación': 'Borde occidental Corabastos · Sector III' },
+    'Sendero Ecológico y Mirador Ambiental — La Vaca Norte (SDA)': { 'Acceso': 'Carrera 80 / Diagonal 42 Sur', 'Uso': 'Educación ambiental y avistamiento de avifauna' },
+  },
   cultura: {
     'Escultura Sueño Infantil (IDECA 05180484)': { 'Código IDECA': '05180484', 'Ubicación oficial': 'CL 44 SUR - KR 80G', 'Categoría': 'Patrimonio y arte público (IDPC)' },
   },
@@ -89,6 +94,7 @@
     },
   },
 };
+
 
 
 
