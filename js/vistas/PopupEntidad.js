@@ -1,5 +1,6 @@
-import { etiquetaLegible } from './etiquetas.js';
+﻿import { etiquetaLegible } from './etiquetas.js';
 import { crearContenidoIcono } from './iconoDominio.js';
+import { FICHAS_OFICIALES } from '../datos/fichasOficiales.js';
 
 const SIN_VALOR = 'Sin dato';
 
@@ -13,7 +14,7 @@ export class PopupEntidad {
     articulo.className = 'popup-entidad';
     articulo.append(
       this._encabezado(entidad, config),
-      this._atributos(entidad),
+      this._atributos(dominio, entidad),
       this._boton(dominio, entidad)
     );
     return articulo;
@@ -35,8 +36,10 @@ export class PopupEntidad {
     return cabecera;
   }
 
-  _atributos(entidad) {
-    const atributos = Object.entries(entidad.atributos?.() || {});
+  _atributos(dominio, entidad) {
+    const base = Object.entries(entidad.atributos?.() || {});
+    const extra = Object.entries(FICHAS_OFICIALES[dominio]?.[entidad.nombre] || {});
+    const atributos = [...base, ...extra];
     if (!atributos.length) {
       const aviso = document.createElement('p');
       aviso.className = 'popup-sin-datos';
