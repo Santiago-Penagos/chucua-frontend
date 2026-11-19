@@ -53,7 +53,9 @@ export class CapaSectores {
 
   _agregar(feature) {
     const sector = feature.properties?.sector;
-    const anillo = (feature.geometry?.coordinates?.[0] || []).map(([lon, lat]) => [lat, lon]);
+    const coords = feature.geometry?.coordinates || [];
+    const crudo = coords.at(0) || [];
+    const anillo = crudo.map((par) => [par.at(1), par.at(0)]);
     if (!sector || anillo.length < 3) return;
     const color = COLORES[sector] || ESTILOS.base.color;
     const capa = L.polygon(anillo, { ...ESTILOS.base, color, fillColor: color });
@@ -84,8 +86,8 @@ export class CapaSectores {
       icon: L.divIcon({
         className: 'etiqueta-sector',
         html: `Sector ${sector}`,
-        iconSize:,
-        iconAnchor:,
+        iconSize: new Array(74, 24),
+        iconAnchor: new Array(37, 12),
       }),
       interactive: false,
       keyboard: false,
