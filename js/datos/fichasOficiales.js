@@ -31,6 +31,11 @@
       'Sector catastral': '004621 · Chucua de la Vaca I (UPL 14)',
     },
   },
+  zonas_verdes: {
+    'Separador Arborizado Villa de la Loma (IDECA 91033237)': { 'Código IDECA': '91033237 · CIV 8005168', 'Capa oficial': 'Mapa de Referencia IDECA (Capa 14)' },
+    'Separador Verde Amparo Cañizares (IDECA 91035444)': { 'Código IDECA': '91035444 · CIV 8004536', 'Capa oficial': 'Mapa de Referencia IDECA (Capa 14)' },
+    'Franja Verde Borde Corabastos (IDECA 91037401)': { 'Código IDECA': '91037401 · CIV 8013734', 'Capa oficial': 'Mapa de Referencia IDECA (Capa 14)' },
+  },
   humedal_puntos: {
     'Espejo de Agua Principal — PEDH La Vaca Norte (IDECA Capa 12)': { 'Polígono oficial IDECA': 'Capa 12 Cuerpo de Agua (231 vértices)', 'Área espejo': '46.600 m² aprox. (Sector Norte)', 'Administración': 'Secretaría Distrital de Ambiente / EAAB' },
     'Ronda Hidráulica y Franja de Amortiguación — La Vaca (SDA)': { 'Normativa': 'Reserva Distrital de Humedal (POT Bogotá)', 'Ubicación': 'Borde occidental Corabastos · Sector III' },
@@ -94,6 +99,7 @@
     },
   },
 };
+
 
 
 
