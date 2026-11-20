@@ -1,4 +1,5 @@
-﻿export const FICHAS_OFICIALES = {
+﻿import { FICHAS_OFICIALES_2 } from './fichasOficiales2.js';
+export const FICHAS_OFICIALES = {
   escenarios: {
     'Parque Vecinal Villa De La Torre (IDRD 08-777)': {
       'Código IDRD': '08-777 · Certificado',
@@ -47,6 +48,7 @@
   seguridad: {
     'CAI Bellavista (IDECA 06250501)': { 'Código IDECA': '06250501', 'Dirección': 'Carrera 94 con Calle 42A Sur', 'Teléfono': '4549769' },
   },
+  ...FICHAS_OFICIALES_2,
   educativos: {
     'Liceo Santa Catalina de Siena (IDECA 07261316)': {
       'Código IDECA': '07261316',
@@ -99,8 +101,4 @@
     },
   },
 };
-
-
-
-
 
