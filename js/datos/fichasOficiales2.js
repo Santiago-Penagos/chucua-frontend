@@ -9,4 +9,9 @@
     'Ronda Hidráulica y Franja de Amortiguación — La Vaca (SDA)': { 'Normativa': 'Reserva Distrital de Humedal (POT Bogotá)', 'Ubicación': 'Borde occidental Corabastos · Sector III' },
     'Sendero Ecológico y Mirador Ambiental — La Vaca Norte (SDA)': { 'Acceso': 'Carrera 80 / Diagonal 42 Sur', 'Uso': 'Educación ambiental y avistamiento de avifauna' },
   },
+  catastro: {
+    'Predio Catastral Manzana 091 Lote 01 (UAECD 004621091001)': { 'Código Lote UAECD': '004621091001', 'Sector Catastral': '004621 · Chucua de la Vaca I', 'Fuente': 'Catastro Bogotá (Capa 19 Lote)' },
+    'Predio Catastral Manzana 024 Lote 41 (UAECD 004620024041)': { 'Código Lote UAECD': '004620024041', 'Sector Catastral': '004620 · Chucua de la Vaca II', 'Fuente': 'Catastro Bogotá (Capa 19 Lote)' },
+    'Predio Catastral Manzana 002 Lote 01 (UAECD 004619002001)': { 'Código Lote UAECD': '004619002001', 'Sector Catastral': '004619 · Chucua de la Vaca III', 'Fuente': 'Catastro Bogotá (Capa 19 Lote)' },
+  },
 };
