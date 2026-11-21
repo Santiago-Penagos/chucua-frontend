@@ -4,12 +4,18 @@ export const EQUIPAMIENTOS_EXTERNOS = {
   catastro: CATASTRO_COMPLEMENTO,
   vias: VIAS_COMPLEMENTO,
   transporte: [
+    { nombre: 'Paradero SITP Br. Villa Nelly · Av. Villavicencio - Kr 81G (033A08)', coordenadas: [-74.169198, 4.625882], nota: 'Paradero zonal oficial TransMilenio (033A08) sobre el corredor Av. Villavicencio (Zonas F / K).' },
     { nombre: 'Paradero SITP Br. Chucua de la Vaca (Cenefa 024A08)', coordenadas: [-74.168912, 4.629458], nota: 'Paradero oficial TransMilenio/SITP sobre el borde occidental (AV. C. de Cali - CL 42C Sur · Zona K).' },
     { nombre: 'Paradero SITP Br. Dindalito (Cenefa 025A08)', coordenadas: [-74.168651, 4.629963], nota: 'Paradero oficial TransMilenio/SITP sobre el corredor Av. Ciudad de Cali (CL 42B Sur · Zona K).' },
     { nombre: 'Paradero SITP Portal Américas (Cenefa 023A08)', coordenadas: [-74.171926, 4.628023], nota: 'Nodo de integración troncal y zonal Portal Américas (AV. C. de Cali - AV. Villavicencio · Zona K).' },
     { nombre: 'Paradero SITP Br. Villa Nelly III Los Alisos (Cenefa 179A08)', coordenadas: [-74.165125, 4.621553], nota: 'Paradero oficial TransMilenio/SITP sobre el borde oriental (AV. Agoberto Mejía - CL 42C Sur · Zona L).' },
     { nombre: 'Paradero SITP Pq. Metropolitano Cayetano Cañizares (Cenefa 008A08)', coordenadas: [-74.162571, 4.623002], nota: 'Paradero oficial TransMilenio/SITP frente al complejo deportivo (AV. Agoberto Mejía - CL 41C Sur · Zona L).' },
     { nombre: 'Paradero SITP Br. Villavicencio (Cenefa 035A08)', coordenadas: [-74.164878, 4.619381], nota: 'Paradero oficial TransMilenio/SITP sobre el corredor sur (AV. Villavicencio - KR 79C · Zona F).' },
+  ],
+  comercio: [
+    { nombre: 'Corabastos — Central de Abastos de Bogotá (IDECA 06210003)', coordenadas: [-74.16045, 4.62915], nota: 'Principal central mayorista de abastecimiento alimentario del país (IDECA 06210003), colindante con el Sector III (004619).' },
+    { nombre: 'Centro Comercial Milenio Plaza (IDECA 01010069)', coordenadas: [-74.16818, 4.63115], nota: 'Centro comercial y nodo de servicios bancarios y comercio formal (IDECA 01010069) en Av. Ciudad de Cali con Calle 42A Sur.' },
+    { nombre: 'Establecimiento Comercial Casa Kiwi (IDECA 01030527)', coordenadas: [-74.16955, 4.62485], nota: 'Sitio de interés comercial registrado en Catastro Bogotá / IDECA (01030527) en el borde occidental del Sector I.' },
   ],
   escenarios: [
     { nombre: 'Parque Metropolitano Cayetano Cañizares (IDRD 08-241)', coordenadas: [-74.161956, 4.62504], nota: 'Equipamiento estructurante colindante (82.891 m², cruzando la Av. Carrera 80). Catastralmente no pertenece a Chucua de la Vaca I, II ni III, pero es el principal complejo deportivo del sector.' },
@@ -53,6 +59,8 @@ export const EQUIPAMIENTOS_EXTERNOS = {
     { nombre: 'Salón Comunal El Carmelo II Sector', coordenadas: [-74.1648, 4.6326], nota: 'Equipamiento comunal colindante al norte del Sector III.' },
   ],
 };
+
+
 
 
 
