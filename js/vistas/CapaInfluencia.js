@@ -35,7 +35,7 @@ export class CapaInfluencia {
         poli.addTo(this.grupo);
         return;
       }
-      const [lon, lat] = item.coordenadas;
+      if (!Array.isArray(item.coordenadas)) return; const [lon, lat] = item.coordenadas;
       const marcador = L.marker([lat, lon], { icon: crearIcono(CONFIG_EXTERNA, item.nombre), title: `${item.nombre} (Límite / Externa)` });
       marcador.bindPopup(this._popup(item, false), { maxWidth: 330, className: 'popup-chucua' });
       marcador.addTo(this.grupo);
@@ -60,4 +60,5 @@ export class CapaInfluencia {
     return caja;
   }
 }
+
 
