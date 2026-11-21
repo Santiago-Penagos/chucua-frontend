@@ -10,5 +10,7 @@
   { titulo: 'Zonas verdes y separadores (IDECA Capa 14)', texto: 'Se registran 6 separadores y franjas verdes oficiales con código CIV distribuidos en los tres sectores (3 en Sector I, 1 en Sector II y 2 en Sector III).' },
   { titulo: 'Información catastral (UAECD Capa 19)', texto: 'Los predios cargados corresponden a lotes catastrales oficiales con código LOTCODIGO de 12 dígitos asociados a cada sector (004621, 004620 y 004619).' },
   { titulo: 'Demografía por sector (DANE / SDP)', texto: 'Los indicadores poblacionales y de hogares se consolidan por cada sector catastral oficial (004621, 004620 y 004619) de la UPZ 80 Corabastos.' },
+  { titulo: 'Malla vial y estado de vías (IDECA Capa 80)', texto: 'Se representan los tramos oficiales de la Malla Vial Integral de Bogotá con su Código de Identificación Vial (CIV) en los tres sectores, diferenciando en naranja los corredores arteriales y vías de límite de sector.' },
 ];
+
 

@@ -15,6 +15,16 @@ export class CapaInfluencia {
   mostrar(dominioActivo) {
     this.grupo.clearLayers();
     (EQUIPAMIENTOS_EXTERNOS[dominioActivo] || []).forEach((item) => {
+      if (item.linea) {
+        const esInterna = item.tipo === 'interna';
+        const estilo = esInterna
+          ? { color: '#2563eb', weight: 4, opacity: 0.85 }
+          : { color: '#d97706', weight: 4.5, opacity: 0.9 };
+        const lin = L.polyline(item.linea, estilo);
+        lin.bindPopup(this._popup(item, esInterna), { maxWidth: 330, className: 'popup-chucua' });
+        lin.addTo(this.grupo);
+        return;
+      }
       if (item.poligono) {
         const esInterna = item.tipo === 'interna';
         const estilo = esInterna
@@ -50,3 +60,4 @@ export class CapaInfluencia {
     return caja;
   }
 }
+

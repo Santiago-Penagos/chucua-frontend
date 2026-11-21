@@ -1,6 +1,8 @@
-﻿import { CATASTRO_COMPLEMENTO } from './catastroComplemento.js';
+﻿import { VIAS_COMPLEMENTO } from './viasComplemento.js';
+import { CATASTRO_COMPLEMENTO } from './catastroComplemento.js';
 export const EQUIPAMIENTOS_EXTERNOS = {
   catastro: CATASTRO_COMPLEMENTO,
+  vias: VIAS_COMPLEMENTO,
   escenarios: [
     { nombre: 'Parque Metropolitano Cayetano Cañizares (IDRD 08-241)', coordenadas: [-74.161956, 4.62504], nota: 'Equipamiento estructurante colindante (82.891 m², cruzando la Av. Carrera 80). Catastralmente no pertenece a Chucua de la Vaca I, II ni III, pero es el principal complejo deportivo del sector.' },
   ],
@@ -43,5 +45,6 @@ export const EQUIPAMIENTOS_EXTERNOS = {
     { nombre: 'Salón Comunal El Carmelo II Sector', coordenadas: [-74.1648, 4.6326], nota: 'Equipamiento comunal colindante al norte del Sector III.' },
   ],
 };
+
 
 
