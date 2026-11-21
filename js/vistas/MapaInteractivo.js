@@ -59,10 +59,10 @@ export class MapaInteractivo {
       return L.marker([coords.at(1), coords.at(0)], { icon: crearIcono(config, entidad.nombre), title: entidad.nombre, alt: entidad.nombre });
     }
     if (tipo === 'LineString') {
-      return L.polyline(coords.filter((p) => Array.isArray(p) && p.length >= 2).map(([lon, lat]) => [lat, lon]), { color: config.color, weight: 5, opacity: 0.85 });
+      return L.polyline(coords.filter((p) => Array.isArray(p) && p.length >= 2).map((par) => [par.at(1), par.at(0)]), { color: config.color, weight: 5, opacity: 0.85 });
     }
     if (tipo === 'Polygon') {
-      return L.polygon((coords.at(0) || []).filter((p) => Array.isArray(p) && p.length >= 2).map(([lon, lat]) => [lat, lon]), { color: config.color, weight: 2, fillColor: config.color, fillOpacity: 0.25 });
+      return L.polygon((coords.at(0) || []).filter((p) => Array.isArray(p) && p.length >= 2).map((par) => [par.at(1), par.at(0)]), { color: config.color, weight: 2, fillColor: config.color, fillOpacity: 0.25 });
     }
     return null;
   }
@@ -79,4 +79,5 @@ export class MapaInteractivo {
     this.capaInfluencia.agregarLeyenda(this.leyenda, dominioActivo);
   }
 }
+
 
