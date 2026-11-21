@@ -1,4 +1,4 @@
-import { AccionesCrud } from './AccionesCrud.js';
+﻿import { AccionesCrud } from './AccionesCrud.js';
 import { Cargador } from './Cargador.js';
 import { Pestanas } from './Pestanas.js';
 import { FormularioEntidad } from '../vistas/FormularioEntidad.js';
@@ -86,7 +86,7 @@ export class GestorCrudUI {
       this._renderPanel();
       this.estadoApi.textContent = 'API conectada';
       this.estadoApi.className = 'estado conectado';
-    } catch (error) {
+    } catch (error) { console.error('Detalle error cargar():', error);
       this.estadoApi.textContent = 'Sin conexión';
       this.estadoApi.className = 'estado desconectado';
       mostrarMensaje(
@@ -97,3 +97,4 @@ export class GestorCrudUI {
     }
   }
 }
+
