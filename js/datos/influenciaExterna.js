@@ -3,6 +3,14 @@ import { CATASTRO_COMPLEMENTO } from './catastroComplemento.js';
 export const EQUIPAMIENTOS_EXTERNOS = {
   catastro: CATASTRO_COMPLEMENTO,
   vias: VIAS_COMPLEMENTO,
+  transporte: [
+    { nombre: 'Paradero SITP Br. Chucua de la Vaca (Cenefa 024A08)', coordenadas: [-74.168912, 4.629458], nota: 'Paradero oficial TransMilenio/SITP sobre el borde occidental (AV. C. de Cali - CL 42C Sur · Zona K).' },
+    { nombre: 'Paradero SITP Br. Dindalito (Cenefa 025A08)', coordenadas: [-74.168651, 4.629963], nota: 'Paradero oficial TransMilenio/SITP sobre el corredor Av. Ciudad de Cali (CL 42B Sur · Zona K).' },
+    { nombre: 'Paradero SITP Portal Américas (Cenefa 023A08)', coordenadas: [-74.171926, 4.628023], nota: 'Nodo de integración troncal y zonal Portal Américas (AV. C. de Cali - AV. Villavicencio · Zona K).' },
+    { nombre: 'Paradero SITP Br. Villa Nelly III Los Alisos (Cenefa 179A08)', coordenadas: [-74.165125, 4.621553], nota: 'Paradero oficial TransMilenio/SITP sobre el borde oriental (AV. Agoberto Mejía - CL 42C Sur · Zona L).' },
+    { nombre: 'Paradero SITP Pq. Metropolitano Cayetano Cañizares (Cenefa 008A08)', coordenadas: [-74.162571, 4.623002], nota: 'Paradero oficial TransMilenio/SITP frente al complejo deportivo (AV. Agoberto Mejía - CL 41C Sur · Zona L).' },
+    { nombre: 'Paradero SITP Br. Villavicencio (Cenefa 035A08)', coordenadas: [-74.164878, 4.619381], nota: 'Paradero oficial TransMilenio/SITP sobre el corredor sur (AV. Villavicencio - KR 79C · Zona F).' },
+  ],
   escenarios: [
     { nombre: 'Parque Metropolitano Cayetano Cañizares (IDRD 08-241)', coordenadas: [-74.161956, 4.62504], nota: 'Equipamiento estructurante colindante (82.891 m², cruzando la Av. Carrera 80). Catastralmente no pertenece a Chucua de la Vaca I, II ni III, pero es el principal complejo deportivo del sector.' },
   ],
@@ -45,6 +53,7 @@ export const EQUIPAMIENTOS_EXTERNOS = {
     { nombre: 'Salón Comunal El Carmelo II Sector', coordenadas: [-74.1648, 4.6326], nota: 'Equipamiento comunal colindante al norte del Sector III.' },
   ],
 };
+
 
 
 

@@ -11,6 +11,8 @@
   { titulo: 'Información catastral (UAECD Capa 19)', texto: 'Los predios cargados corresponden a lotes catastrales oficiales con código LOTCODIGO de 12 dígitos asociados a cada sector (004621, 004620 y 004619).' },
   { titulo: 'Demografía por sector (DANE / SDP)', texto: 'Los indicadores poblacionales y de hogares se consolidan por cada sector catastral oficial (004621, 004620 y 004619) de la UPZ 80 Corabastos.' },
   { titulo: 'Malla vial y estado de vías (IDECA Capa 80)', texto: 'Se representan los tramos oficiales de la Malla Vial Integral de Bogotá con su Código de Identificación Vial (CIV) en los tres sectores, diferenciando en naranja los corredores arteriales y vías de límite de sector.' },
+  { titulo: 'Transporte público y paraderos SITP (TransMilenio)', texto: 'Se incluyen 4 paraderos zonales oficiales con código de cenefa sobre los bordes internos de Sector I y III, más 6 paraderos perimetrales en ámbar sobre la Av. Ciudad de Cali, Av. Agoberto Mejía, Av. Villavicencio y Portal Américas.' },
 ];
+
 
 

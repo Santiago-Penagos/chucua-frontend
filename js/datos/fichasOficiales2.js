@@ -9,6 +9,12 @@
     'Ronda Hidráulica y Franja de Amortiguación — La Vaca (SDA)': { 'Normativa': 'Reserva Distrital de Humedal (POT Bogotá)', 'Ubicación': 'Borde occidental Corabastos · Sector III' },
     'Sendero Ecológico y Mirador Ambiental — La Vaca Norte (SDA)': { 'Acceso': 'Carrera 80 / Diagonal 42 Sur', 'Uso': 'Educación ambiental y avistamiento de avifauna' },
   },
+  transporte: {
+    'Paradero SITP Br. Villa Nelly (Cenefa 599A08)': { 'Cenefa oficial': '599A08 · Zona F', 'Ubicación': 'AV. Villavicencio - KR 80G', 'Fuente': 'TransMilenio S.A. · Paraderos Zonales' },
+    'Paradero SITP Br. Villa Nelly (Cenefa 034A08)': { 'Cenefa oficial': '034A08 · Zona F', 'Ubicación': 'AV. Villavicencio - KR 81B', 'Fuente': 'TransMilenio S.A. · Paraderos Zonales' },
+    'Paradero SITP Br. Villa de la Loma (Cenefa 032A08)': { 'Cenefa oficial': '032A08 · Zona F', 'Ubicación': 'AV. Villavicencio - KR 82 A', 'Fuente': 'TransMilenio S.A. · Paraderos Zonales' },
+    'Paradero SITP Br. Llano Grande (Cenefa 026A08)': { 'Cenefa oficial': '026A08 · Zona K', 'Ubicación': 'AV. Ciudad de Cali - CL 40 Sur', 'Fuente': 'TransMilenio S.A. · Paraderos Zonales' },
+  },
   demografia: {
     'Censo Sector Catastral 004621 · Chucua de la Vaca I (DANE / SDP)': { 'Sector catastral': '004621 · UPZ 80 Corabastos', 'Fuente': 'Proyección Poblacional DANE / SDP Bogotá', 'Estrato predominante': 'Estrato 2' },
     'Censo Sector Catastral 004620 · Chucua de la Vaca II (DANE / SDP)': { 'Sector catastral': '004620 · UPZ 80 Corabastos', 'Fuente': 'Proyección Poblacional DANE / SDP Bogotá', 'Estrato predominante': 'Estrato 2' },
@@ -20,4 +26,5 @@
     'Predio Catastral El Amparo (Lote 004619002001)': { 'Código Lote UAECD': '004619002001', 'Sector catastral': '004619 · Chucua de la Vaca III' },
   },
 };
+
 
