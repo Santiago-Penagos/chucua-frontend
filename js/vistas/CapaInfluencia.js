@@ -16,14 +16,18 @@ export class CapaInfluencia {
     this.grupo.clearLayers();
     (EQUIPAMIENTOS_EXTERNOS[dominioActivo] || []).forEach((item) => {
       if (item.poligono) {
-        const poli = L.polygon(item.poligono, { color: '#d97706', weight: 2, fillColor: '#f59e0b', fillOpacity: 0.32 });
-        poli.bindPopup(this._popup(item), { maxWidth: 330, className: 'popup-chucua' });
+        const esInterna = item.tipo === 'interna';
+        const estilo = esInterna
+          ? { color: '#7c3aed', weight: 1.5, fillColor: '#8b5cf6', fillOpacity: 0.25 }
+          : { color: '#d97706', weight: 2, fillColor: '#f59e0b', fillOpacity: 0.34 };
+        const poli = L.polygon(item.poligono, estilo);
+        poli.bindPopup(this._popup(item, esInterna), { maxWidth: 330, className: 'popup-chucua' });
         poli.addTo(this.grupo);
         return;
       }
       const [lon, lat] = item.coordenadas;
       const marcador = L.marker([lat, lon], { icon: crearIcono(CONFIG_EXTERNA, item.nombre), title: `${item.nombre} (Límite / Externa)` });
-      marcador.bindPopup(this._popup(item), { maxWidth: 330, className: 'popup-chucua' });
+      marcador.bindPopup(this._popup(item, false), { maxWidth: 330, className: 'popup-chucua' });
       marcador.addTo(this.grupo);
     });
   }
@@ -38,10 +42,11 @@ export class CapaInfluencia {
     leyenda.append(fila);
   }
 
-  _popup(item) {
+  _popup(item, esInterna) {
     const caja = document.createElement('article');
     caja.className = 'popup-entidad';
-    caja.innerHTML = `<h3>${item.nombre}</h3><p class="popup-meta"><span class="popup-dominio">Límite de sector / Influencia externa</span></p><p class="popup-sin-datos">${item.nota}</p>`;
+    const sub = esInterna ? 'Información catastral (UAECD / IDECA)' : 'Límite de sector / Influencia externa';
+    caja.innerHTML = `<h3>${item.nombre}</h3><p class="popup-meta"><span class="popup-dominio">${sub}</span></p><p class="popup-sin-datos">${item.nota}</p>`;
     return caja;
   }
 }
