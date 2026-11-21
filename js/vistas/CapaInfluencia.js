@@ -2,7 +2,7 @@
 import { EQUIPAMIENTOS_EXTERNOS } from '../datos/influenciaExterna.js';
 
 const CONFIG_EXTERNA = {
-  etiqueta: 'Influencia externa (fuera del límite catastral)',
+  etiqueta: 'Influencia externa / Límite de sector',
   color: '#d97706',
   icono: 'building',
 };
@@ -15,11 +15,14 @@ export class CapaInfluencia {
   mostrar(dominioActivo) {
     this.grupo.clearLayers();
     (EQUIPAMIENTOS_EXTERNOS[dominioActivo] || []).forEach((item) => {
+      if (item.poligono) {
+        const poli = L.polygon(item.poligono, { color: '#d97706', weight: 2, fillColor: '#f59e0b', fillOpacity: 0.32 });
+        poli.bindPopup(this._popup(item), { maxWidth: 330, className: 'popup-chucua' });
+        poli.addTo(this.grupo);
+        return;
+      }
       const [lon, lat] = item.coordenadas;
-      const marcador = L.marker([lat, lon], {
-        icon: crearIcono(CONFIG_EXTERNA, item.nombre),
-        title: `${item.nombre} (Influencia externa)`,
-      });
+      const marcador = L.marker([lat, lon], { icon: crearIcono(CONFIG_EXTERNA, item.nombre), title: `${item.nombre} (Límite / Externa)` });
       marcador.bindPopup(this._popup(item), { maxWidth: 330, className: 'popup-chucua' });
       marcador.addTo(this.grupo);
     });
@@ -38,7 +41,7 @@ export class CapaInfluencia {
   _popup(item) {
     const caja = document.createElement('article');
     caja.className = 'popup-entidad';
-    caja.innerHTML = `<h3>${item.nombre}</h3><p class="popup-meta"><span class="popup-dominio">Influencia externa oficial</span></p><p class="popup-sin-datos">${item.nota}</p>`;
+    caja.innerHTML = `<h3>${item.nombre}</h3><p class="popup-meta"><span class="popup-dominio">Límite de sector / Influencia externa</span></p><p class="popup-sin-datos">${item.nota}</p>`;
     return caja;
   }
 }
