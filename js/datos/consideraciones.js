@@ -9,4 +9,6 @@
   { titulo: 'Humedal La Vaca (IDECA Capa 12)', texto: 'El polígono oficial de 231 vértices del cuerpo de agua del Sector Norte del Humedal La Vaca se ubica dentro del Sector III (004619); se incluye en ámbar el Sector Sur del mismo complejo de humedal.' },
   { titulo: 'Zonas verdes y separadores (IDECA Capa 14)', texto: 'Se registran 6 separadores y franjas verdes oficiales con código CIV distribuidos en los tres sectores (3 en Sector I, 1 en Sector II y 2 en Sector III).' },
   { titulo: 'Información catastral (UAECD Capa 19)', texto: 'Los predios cargados corresponden a lotes catastrales oficiales con código LOTCODIGO de 12 dígitos asociados a cada sector (004621, 004620 y 004619).' },
+  { titulo: 'Demografía por sector (DANE / SDP)', texto: 'Los indicadores poblacionales y de hogares se consolidan por cada sector catastral oficial (004621, 004620 y 004619) de la UPZ 80 Corabastos.' },
 ];
+
