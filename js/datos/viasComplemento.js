@@ -94,9 +94,5 @@ export const VIAS_COMPLEMENTO = [
   {"nombre": "SIN_NMG (CIV 8006030)", "tipo": "interna", "linea": [[4.62382, -74.1663], [4.62383, -74.1663], [4.6241, -74.16639]], "nota": "Tramo vial interno oficial IDECA (CIV 8006030) · Sector I · Estado: regular."},
   {"nombre": "SIN_NMG (CIV 8005153)", "tipo": "interna", "linea": [[4.6276, -74.16188], [4.62757, -74.1619], [4.62756, -74.1619], [4.62738, -74.16202], [4.62736, -74.16203]], "nota": "Tramo vial interno oficial IDECA (CIV 8005153) · Sector III · Estado: regular."},
   {"nombre": "SIN_NMG (CIV 8005944)", "tipo": "interna", "linea": [[4.62422, -74.16674], [4.62424, -74.16675], [4.62426, -74.16676], [4.62447, -74.16691]], "nota": "Tramo vial interno oficial IDECA (CIV 8005944) · Sector I · Estado: bueno."},
-  {"nombre": "SIN_NMG (CIV 8005131)", "tipo": "interna", "linea": [[4.62768, -74.16227], [4.62765, -74.16231]], "nota": "Tramo vial interno oficial IDECA (CIV 8005131) · Sector III · Estado: bueno."},
-  {"nombre": "SIN_NMG (CIV 8006068)", "tipo": "interna", "linea": [[4.6237, -74.1687], [4.62397, -74.1688]], "nota": "Tramo vial interno oficial IDECA (CIV 8006068) · Sector I · Estado: regular."},
-  {"nombre": "SIN_NMG (CIV 8005250)", "tipo": "interna", "linea": [[4.62716, -74.16145], [4.62702, -74.16153], [4.62701, -74.16153]], "nota": "Tramo vial interno oficial IDECA (CIV 8005250) · Sector III · Estado: regular."},
-  {"nombre": "SIN_NMG (CIV 8006248)", "tipo": "interna", "linea": [[4.62355, -74.1662], [4.62354, -74.16622], [4.62304, -74.16704], [4.62302, -74.16708]], "nota": "Tramo vial interno oficial IDECA (CIV 8006248) · Sector I · Estado: regular."},
   {"nombre": "SIN_NMG (CIV 8012251)", "tipo": "interna", "linea": [[4.62744, -74.16252], [4.62726, -74.16271]], "nota": "Tramo vial interno oficial IDECA (CIV 8012251) · Sector III · Estado: regular."},
 ];
