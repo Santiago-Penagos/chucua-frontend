@@ -82,5 +82,3 @@ export class MapaInteractivo {
     this.capaInfluencia.agregarLeyenda(this.leyenda, dominioActivo);
   }
 }
-
-
