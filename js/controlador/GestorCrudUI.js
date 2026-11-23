@@ -30,13 +30,7 @@ export class GestorCrudUI {
       alEditar: (entidad) => this.acciones.editar(entidad),
       alEliminar: (entidad) => this.acciones.eliminar(entidad),
     });
-    this.pestanas = new Pestanas({
-      elemento: document.querySelector('#dominio-tabs'),
-      dominios,
-      orden,
-      grupos,
-      alCambiar: (dominio) => this.cambiarDominio(dominio),
-    });
+    this.pestanas = new Pestanas({ elemento: document.querySelector('#dominio-tabs'), dominios, orden, grupos, alCambiar: (dominio) => this.cambiarDominio(dominio) });
     this.mensajes = document.querySelector('#mensajes');
     this.estadoApi = document.querySelector('#estado-api');
   }
@@ -49,10 +43,7 @@ export class GestorCrudUI {
       this.cargar();
     });
     document.querySelector('#btn-nueva').addEventListener('click', () => this.acciones.nueva());
-    document.querySelector('#btn-exportar')?.addEventListener('click', () => {
-      const { dominio, datos, sector } = this.estado;
-      this.analitica.exportarGeoJson(dominio, datos[dominio] || [], sector);
-    });
+    document.querySelector('#btn-exportar')?.addEventListener('click', () => this.analitica.exportarGeoJson(this.estado.dominio, this.estado.datos[this.estado.dominio] || [], this.estado.sector));
     this.mapa.cargarSectores(this.api);
     this.cargar();
   }
@@ -97,6 +88,3 @@ export class GestorCrudUI {
     }
   }
 }
-
-
-
