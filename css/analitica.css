@@ -1,0 +1,33 @@
+﻿.analitica-sig {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.65rem;
+  margin: 0.75rem 0 1rem;
+}
+.tarjeta-kpi {
+  background: #ffffff;
+  border: 1px solid #d8e2dc;
+  border-left: 4px solid #0b6b4f;
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+.tarjeta-kpi span {
+  display: block;
+  font-size: 0.75rem;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.tarjeta-kpi strong {
+  display: block;
+  font-size: 1.15rem;
+  color: #0f172a;
+  margin-top: 0.15rem;
+}
+.tarjeta-kpi small {
+  display: block;
+  font-size: 0.74rem;
+  color: #64748b;
+  margin-top: 0.1rem;
+}

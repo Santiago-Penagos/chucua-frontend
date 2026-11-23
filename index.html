@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/secciones.css"><link rel="stylesheet" href="css/zonas.css"><link rel="stylesheet" href="css/pestanas.css">
   <link rel="stylesheet" href="css/componentes.css"><link rel="stylesheet" href="css/lista.css"><link rel="stylesheet" href="css/mapa.css">
   <link rel="stylesheet" href="css/cartel.css"><link rel="stylesheet" href="css/iconos.css"><link rel="stylesheet" href="css/panel.css">
-  <link rel="stylesheet" href="css/formularios.css">
+  <link rel="stylesheet" href="css/formularios.css"><link rel="stylesheet" href="css/analitica.css">
 </head>
 <body>
   <a class="salto-contenido" href="#historia">Saltar al contenido</a>
@@ -56,9 +56,9 @@
         <select id="filtro-sector">
           <option value="">Todos</option> <option value="I">Sector I</option> <option value="II">Sector II</option> <option value="III">Sector III</option>
         </select>
-        <span id="estado-api" class="estado">Conectando…</span>
+        <span id="estado-api" class="estado">Conectando…</span><button id="btn-exportar" type="button" class="boton">Exportar GeoJSON</button>
       </div>
-      <nav id="dominio-tabs" class="pestanas" aria-label="Dominios geográficos"></nav>
+      <nav id="dominio-tabs" class="pestanas" aria-label="Dominios geográficos"></nav><div id="analitica-sig" class="analitica-sig" aria-live="polite"></div>
       <div class="contenido">
         <div class="panel-mapa" aria-label="Mapa del barrio">
           <div id="mapa"></div>
@@ -82,7 +82,7 @@
     <span>Portal del barrio Chucua de la Vaca · Kennedy, Bogotá</span><span>Cartografía: IDECA / UAECD · Mapa base: © OpenStreetMap contributors (ODbL)</span>
   </footer>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script type="module" src="js/app.js?v=2"></script>
+  <script type="module" src="js/app.js?v=4"></script>
   <script type="module">
     import { CONSIDERACIONES } from './js/datos/consideraciones.js';
     const ul = document.getElementById('lista-consideraciones');
@@ -94,6 +94,7 @@
   </script>
 </body>
 </html>
+
 
 
 

@@ -1,6 +1,7 @@
 ﻿import { AccionesCrud } from './AccionesCrud.js';
 import { Cargador } from './Cargador.js';
 import { Pestanas } from './Pestanas.js';
+import { AnaliticaSigUI } from '../vistas/AnaliticaSigUI.js';
 import { FormularioEntidad } from '../vistas/FormularioEntidad.js';
 import { PanelCrud } from '../vistas/PanelCrud.js';
 import { mostrarMensaje } from '../vistas/mensajes.js';
@@ -10,22 +11,19 @@ export class GestorCrudUI {
     this.api = api;
     this.dominios = dominios;
     this.orden = orden;
-    this.estado = { dominio: orden[0], sector: '', datos: {} };
+    this.estado = { dominio: orden.at(0), sector: '', datos: {} };
     this.cargador = new Cargador(api, orden);
     this.mapa = mapa;
-    this.formulario = new FormularioEntidad(
-      document.querySelector('#formulario'),
-      { alGuardar: (dominio, datos, entidad) => this.acciones.guardar(dominio, datos, entidad) }
-    );
+    this.analitica = new AnaliticaSigUI(document.querySelector('#analitica-sig'));
+    this.formulario = new FormularioEntidad(document.querySelector('#formulario'), {
+      alGuardar: (dominio, datos, entidad) => this.acciones.guardar(dominio, datos, entidad),
+    });
     this.acciones = new AccionesCrud({
       api,
       formulario: this.formulario,
       mensajes: document.querySelector('#mensajes'),
       recargar: () => this.cargar(),
-      contexto: () => ({
-        dominio: this.estado.dominio,
-        config: this.dominios[this.estado.dominio],
-      }),
+      contexto: () => ({ dominio: this.estado.dominio, config: this.dominios[this.estado.dominio] }),
     });
     this.panel = new PanelCrud({
       elemento: document.querySelector('#lista-entidades'),
@@ -51,6 +49,10 @@ export class GestorCrudUI {
       this.cargar();
     });
     document.querySelector('#btn-nueva').addEventListener('click', () => this.acciones.nueva());
+    document.querySelector('#btn-exportar')?.addEventListener('click', () => {
+      const { dominio, datos, sector } = this.estado;
+      this.analitica.exportarGeoJson(dominio, datos[dominio] || [], sector);
+    });
     this.mapa.cargarSectores(this.api);
     this.cargar();
   }
@@ -73,8 +75,10 @@ export class GestorCrudUI {
   }
 
   _renderPanel() {
-    const { dominio, datos } = this.estado;
-    this.panel.render(this.dominios[dominio], datos[dominio] || []);
+    const { dominio, datos, sector } = this.estado;
+    const lista = datos[dominio] || [];
+    this.panel.render(this.dominios[dominio], lista);
+    this.analitica.render(dominio, this.dominios[dominio], lista, sector);
   }
 
   async cargar() {
@@ -86,15 +90,10 @@ export class GestorCrudUI {
       this._renderPanel();
       this.estadoApi.textContent = 'API conectada';
       this.estadoApi.className = 'estado conectado';
-    } catch (error) { console.error('Detalle error cargar():', error);
+    } catch (error) {
       this.estadoApi.textContent = 'Sin conexión';
       this.estadoApi.className = 'estado desconectado';
-      mostrarMensaje(
-        this.mensajes,
-        `No se pudo cargar la información: ${error.message}`,
-        'error'
-      );
+      mostrarMensaje(this.mensajes, `No se pudo cargar la información: ${error.message}`, 'error');
     }
   }
 }
-
