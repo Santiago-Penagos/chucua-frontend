@@ -12,8 +12,14 @@ export class CapaInfluencia {
   mostrar(dominioActivo, sectorActivo = '') {
     this.grupo.clearLayers();
     const lista = (EQUIPAMIENTOS_EXTERNOS[dominioActivo] || []).filter((item) => {
-      if (!sectorActivo || dominioActivo !== 'catastro') return true;
-      return item.nombre.includes(CODIGOS_SECTOR[sectorActivo]) || item.nombre.includes(`Sector ${sectorActivo})`);
+      if (!sectorActivo) return true;
+      if (dominioActivo === 'catastro') {
+        return item.nombre.includes(CODIGOS_SECTOR[sectorActivo]) || item.nombre.includes(`Sector ${sectorActivo})`);
+      }
+      if (dominioActivo === 'vias') {
+        return (item.nota || '').includes(`Sector ${sectorActivo} `) || item.nombre.endsWith(`Sector ${sectorActivo}`);
+      }
+      return true;
     });
     lista.forEach((item) => {
       if (item.linea) {
