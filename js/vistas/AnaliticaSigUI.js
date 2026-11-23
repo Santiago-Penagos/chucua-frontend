@@ -70,7 +70,7 @@ export class AnaliticaSigUI {
   }
 
   exportarGeoJson(dominio, entidades, sector) {
-    const base = entidades.map((e) => ({ type: 'Feature', geometry: e.geometria, properties: { id: e.id, nombre: e.nombre, sector: e.sector, cobertura: 'interna', ...e.atributos() } }));
+    const base = entidades.map((e) => ({ type: 'Feature', geometry: e.geometria, properties: { id: e.id, nombre: e.nombre, sector: e.sector, cobertura: 'interna', stroke: dominio === 'vias' ? '#2563eb' : '#7c3aed', fill: '#7c3aed', 'fill-opacity': 0.3, ...e.atributos() } }));
     const comp = externosFiltrados(dominio, sector).map((item) => featureExterno(item, dominio)).filter(Boolean);
     const fc = { type: 'FeatureCollection', name: `chucua_${dominio}${sector ? `_sector_${sector}` : ''}`, features: [...base, ...comp] };
     const blob = new Blob([JSON.stringify(fc, null, 2)], { type: 'application/geo+json' });
@@ -81,3 +81,4 @@ export class AnaliticaSigUI {
     URL.revokeObjectURL(enlace.href);
   }
 }
+
