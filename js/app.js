@@ -1,11 +1,11 @@
-import { API_URL, CENTRO, ZOOM } from '../config.js';
+﻿import { API_URL, CENTRO, ZOOM } from '../config.js';
 import { ApiService } from './api/ApiService.js';
 import { DOMINIOS, ORDEN, GRUPOS } from './configDominios.js';
 import { ZONAS } from './datos/zonasDestacadas.js';
 import { NavegacionPortal } from './controlador/NavegacionPortal.js';
 import { GestorCrudUI } from './controlador/GestorCrudUI.js';
 import { ZonasDestacadasUI } from './vistas/ZonasDestacadasUI.js';
-import { MapaInteractivo } from './vistas/MapaInteractivo.js';
+import { MapaInteractivo } from './vistas/MapaInteractivo.js?v=3';
 
 let gestor;
 
@@ -40,3 +40,4 @@ const navegacion = new NavegacionPortal({
 navegacion.iniciar();
 zonas.render();
 gestor.iniciar();
+
