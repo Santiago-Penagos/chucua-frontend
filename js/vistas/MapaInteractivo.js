@@ -42,7 +42,7 @@ export class MapaInteractivo {
     const config = dominios[dominioActivo];
     this.capas.clearLayers();
     this._leyenda(config, dominioActivo);
-    this.capaInfluencia.mostrar(dominioActivo);
+    this.capaInfluencia.mostrar(dominioActivo, this.capaSectores.seleccion);
     (datos[dominioActivo] || []).forEach((entidad) => {
       const capa = this._capa(entidad, config);
       if (!capa) return;
@@ -79,5 +79,6 @@ export class MapaInteractivo {
     this.capaInfluencia.agregarLeyenda(this.leyenda, dominioActivo);
   }
 }
+
 
 
