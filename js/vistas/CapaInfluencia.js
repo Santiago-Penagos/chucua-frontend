@@ -13,11 +13,12 @@ export class CapaInfluencia {
     this.grupo.clearLayers();
     const lista = (EQUIPAMIENTOS_EXTERNOS[dominioActivo] || []).filter((item) => {
       if (!sectorActivo) return true;
+      const texto = `${item.nombre} ${item.nota || ''}`;
       if (dominioActivo === 'catastro') {
-        return item.nombre.includes(CODIGOS_SECTOR[sectorActivo]) || item.nombre.includes(`Sector ${sectorActivo})`);
+        return texto.includes(CODIGOS_SECTOR[sectorActivo]) || texto.includes(`Sector ${sectorActivo})`);
       }
       if (dominioActivo === 'vias') {
-        return (item.nota || '').includes(`Sector ${sectorActivo} `) || item.nombre.endsWith(`Sector ${sectorActivo}`);
+        return new RegExp(`Sector ${sectorActivo}(?:[^I]|$)`).test(texto);
       }
       return true;
     });
