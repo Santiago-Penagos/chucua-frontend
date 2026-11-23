@@ -1,7 +1,7 @@
 ﻿import { AccionesCrud } from './AccionesCrud.js';
 import { Cargador } from './Cargador.js';
 import { Pestanas } from './Pestanas.js';
-import { AnaliticaSigUI } from '../vistas/AnaliticaSigUI.js?v=2';
+import { AnaliticaSigUI } from '../vistas/AnaliticaSigUI.js?v=3';
 import { FormularioEntidad } from '../vistas/FormularioEntidad.js';
 import { PanelCrud } from '../vistas/PanelCrud.js';
 import { mostrarMensaje } from '../vistas/mensajes.js';
@@ -97,4 +97,5 @@ export class GestorCrudUI {
     }
   }
 }
+
 
