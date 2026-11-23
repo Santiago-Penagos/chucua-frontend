@@ -5,13 +5,13 @@ import { PopupEntidad } from './PopupEntidad.js';
 import { crearIcono, crearContenidoIcono } from './iconoDominio.js';
 
 const OSM = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-const SAT = 'https://arcgisonline.com{z}/{y}/{x}';
+const SAT = 'https://google.com{x}&y={y}&z={z}';
 
 export class MapaInteractivo {
   constructor(id, { centro, zoom, alEditar }) {
     this.mapa = L.map(id).setView(centro, zoom);
     const calles = L.tileLayer(OSM, { maxZoom: 19, attribution: '© OpenStreetMap contributors' }).addTo(this.mapa);
-    const satelite = L.tileLayer(SAT, { maxNativeZoom: 17, maxZoom: 19, attribution: '© Esri World Imagery' });
+    const satelite = L.tileLayer(SAT, { maxZoom: 20, attribution: '© Google Satellite' });
     L.control.layers({ 'Mapa callejero': calles, 'Vista satelital': satelite }, null, { position: 'topleft' }).addTo(this.mapa);
     this.capaSectores = new CapaSectores(this.mapa);
     this.capaInfluencia = new CapaInfluencia(this.mapa);
@@ -82,4 +82,5 @@ export class MapaInteractivo {
     this.capaInfluencia.agregarLeyenda(this.leyenda, dominioActivo);
   }
 }
+
 
