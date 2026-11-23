@@ -1,5 +1,7 @@
 ﻿import { EQUIPAMIENTOS_EXTERNOS } from '../datos/influenciaExterna.js';
 
+const CODIGOS_SECTOR = { I: '004621', II: '004620', III: '004619' };
+
 function haversineKm(a, b) {
   const rad = Math.PI / 180;
   const dLat = (b.at(1) - a.at(1)) * rad;
@@ -14,6 +16,26 @@ function longitudTramo(coords) {
   return total;
 }
 
+function externosFiltrados(dominio, sector) {
+  return (EQUIPAMIENTOS_EXTERNOS[dominio] || []).filter((item) => {
+    if (!sector) return true;
+    const texto = `${item.nombre} ${item.nota || ''}`;
+    if (dominio === 'catastro') return texto.includes(CODIGOS_SECTOR[sector]) || texto.includes(`Sector ${sector})`);
+    if (dominio === 'vias') return new RegExp(`Sector ${sector}(?:[^I]|$)`).test(texto);
+    return true;
+  });
+}
+
+function featureExterno(item, dominio) {
+  const esInterna = item.tipo === 'interna';
+  const color = esInterna ? (dominio === 'vias' ? '#2563eb' : '#7c3aed') : '#d97706';
+  const props = { nombre: item.nombre, cobertura: esInterna ? 'interna' : 'limite_o_externa', nota: item.nota || '', stroke: color, fill: color, 'fill-opacity': 0.3 };
+  if (item.poligono) return { type: 'Feature', geometry: { type: 'Polygon', coordinates: [item.poligono.map((p) => [p.at(1), p.at(0)])] }, properties: props };
+  if (item.linea) return { type: 'Feature', geometry: { type: 'LineString', coordinates: item.linea.map((p) => [p.at(1), p.at(0)]) }, properties: props };
+  if (Array.isArray(item.coordenadas)) return { type: 'Feature', geometry: { type: 'Point', coordinates: item.coordenadas }, properties: props };
+  return null;
+}
+
 export class AnaliticaSigUI {
   constructor(elemento) {
     this.elemento = elemento;
@@ -21,7 +43,7 @@ export class AnaliticaSigUI {
 
   render(dominio, config, entidades, sector) {
     if (!this.elemento || !config) return;
-    const externas = (EQUIPAMIENTOS_EXTERNOS[dominio] || []).length;
+    const externas = externosFiltrados(dominio, sector).length;
     const porSec = { I: 0, II: 0, III: 0 };
     entidades.forEach((e) => { if (porSec[e.sector] !== undefined) porSec[e.sector] += 1; });
     const kpis = [
@@ -48,15 +70,9 @@ export class AnaliticaSigUI {
   }
 
   exportarGeoJson(dominio, entidades, sector) {
-    const fc = {
-      type: 'FeatureCollection',
-      name: `chucua_${dominio}${sector ? `_sector_${sector}` : ''}`,
-      features: entidades.map((e) => ({
-        type: 'Feature',
-        geometry: e.geometria,
-        properties: { id: e.id, nombre: e.nombre, sector: e.sector, ...e.atributos() },
-      })),
-    };
+    const base = entidades.map((e) => ({ type: 'Feature', geometry: e.geometria, properties: { id: e.id, nombre: e.nombre, sector: e.sector, cobertura: 'interna', ...e.atributos() } }));
+    const comp = externosFiltrados(dominio, sector).map((item) => featureExterno(item, dominio)).filter(Boolean);
+    const fc = { type: 'FeatureCollection', name: `chucua_${dominio}${sector ? `_sector_${sector}` : ''}`, features: [...base, ...comp] };
     const blob = new Blob([JSON.stringify(fc, null, 2)], { type: 'application/geo+json' });
     const enlace = document.createElement('a');
     enlace.href = URL.createObjectURL(blob);
