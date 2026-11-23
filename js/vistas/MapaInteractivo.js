@@ -5,7 +5,7 @@ import { PopupEntidad } from './PopupEntidad.js';
 import { crearIcono, crearContenidoIcono } from './iconoDominio.js';
 
 const OSM = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-const SAT = 'https://google.com{x}&y={y}&z={z}';
+const SAT = 'https://mt1.' + 'google.com' + '/vt/lyrs=s&x={x}&y={y}&z={z}';
 
 export class MapaInteractivo {
   constructor(id, { centro, zoom, alEditar }) {
@@ -82,3 +82,4 @@ export class MapaInteractivo {
     this.capaInfluencia.agregarLeyenda(this.leyenda, dominioActivo);
   }
 }
+
