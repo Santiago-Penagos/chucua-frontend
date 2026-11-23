@@ -4,12 +4,15 @@ import { CartelSector } from './CartelSector.js';
 import { PopupEntidad } from './PopupEntidad.js';
 import { crearIcono, crearContenidoIcono } from './iconoDominio.js';
 
-const TESELAS = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+const OSM = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+const SAT = 'https://arcgisonline.com{z}/{y}/{x}';
 
 export class MapaInteractivo {
   constructor(id, { centro, zoom, alEditar }) {
     this.mapa = L.map(id).setView(centro, zoom);
-    L.tileLayer(TESELAS, { maxZoom: 19, attribution: '© OpenStreetMap contributors' }).addTo(this.mapa);
+    const calles = L.tileLayer(OSM, { maxZoom: 19, attribution: '© OpenStreetMap contributors' }).addTo(this.mapa);
+    const satelite = L.tileLayer(SAT, { maxZoom: 19, attribution: '© Esri World Imagery' });
+    L.control.layers({ 'Mapa callejero': calles, 'Vista satelital': satelite }, null, { position: 'topleft' }).addTo(this.mapa);
     this.capaSectores = new CapaSectores(this.mapa);
     this.capaInfluencia = new CapaInfluencia(this.mapa);
     this.cartel = new CartelSector().addTo(this.mapa);
@@ -79,6 +82,3 @@ export class MapaInteractivo {
     this.capaInfluencia.agregarLeyenda(this.leyenda, dominioActivo);
   }
 }
-
-
-
