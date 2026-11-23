@@ -55,10 +55,11 @@ export const EQUIPAMIENTOS_EXTERNOS = {
   jac: [
     { nombre: 'Salón Comunal Villa Nelly III Sector Los Alisos', coordenadas: [-74.16587, 4.622008], nota: 'Equipamiento comunal colindante al sur del Sector I.' },
     { nombre: 'Salón Comunal Villa Hermosa', coordenadas: [-74.1704, 4.6258], nota: 'Equipamiento comunal colindante cruzando la Av. Carrera 86.' },
-    { nombre: 'Salón Comunal Calarcá Sur', coordenadas: [-74.1615, 4.6272], nota: 'Equipamiento comunal colindante cruzando la Av. Carrera 80.' },
+    { nombre: 'Salón Comunal Calarcá Sur', coordenadas: [-74.1598, 4.6274], nota: 'Equipamiento comunal colindante cruzando la Av. Carrera 80.' },
     { nombre: 'Salón Comunal El Carmelo II Sector', coordenadas: [-74.1648, 4.6326], nota: 'Equipamiento comunal colindante al norte del Sector III.' },
   ],
 };
+
 
 
 
